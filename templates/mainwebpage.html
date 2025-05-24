@@ -91,8 +91,8 @@
                 </svg>
             </div>
             <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-6" data-translate="hero_title_1">
-                    Impulsa tu Negocio con <span class="text-yellow-400" data-translate="hero_title_highlight">Inteligencia Artificial Sostenible</span>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-6">
+                    <span data-translate="hero_title_prefix">Impulsa tu Negocio con </span><span class="text-yellow-400" data-translate="hero_title_highlight">Inteligencia Artificial Sostenible</span>
                 </h1>
                 <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto" data-translate="hero_subtitle">
                     En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.
@@ -240,8 +240,6 @@
                 link.addEventListener('click', () => {
                     mobileMenuElement.classList.remove('active');
                     mobileMenuButtonElement.innerHTML = '☰';
-                    // El scroll suave es manejado por CSS con `scroll-behavior: smooth;`
-                    // y el navegador maneja el anclaje a la sección.
                 });
             });
         }
@@ -251,43 +249,31 @@
             if (!headerElement || allPageSections.length === 0 || allNavigationLinks.length === 0) {
                 return;
             }
-
             const headerHeight = headerElement.offsetHeight;
             let currentSectionId = '';
 
-            // Determinar qué sección está actualmente visible
-            // Iterar de abajo hacia arriba para identificar correctamente la sección al subir
             for (let i = allPageSections.length - 1; i >= 0; i--) {
                 const section = allPageSections[i];
-                // Considerar la altura del header y un pequeño buffer (ej. 20px)
                 const sectionTop = section.offsetTop - headerHeight - 20; 
-
                 if (window.scrollY >= sectionTop) {
                     currentSectionId = section.id;
-                    break; // Sección actual encontrada
+                    break; 
                 }
             }
             
-            // Si no se encontró ninguna sección (ej. al inicio, antes de la primera sección)
-            // y hay secciones, y el scroll está por encima de la primera sección.
             if (!currentSectionId && allPageSections.length > 0 && window.scrollY < (allPageSections[0].offsetTop - headerHeight - 20)) {
                 currentSectionId = allPageSections[0].id;
             }
 
-
             allNavigationLinks.forEach(link => {
                 link.classList.remove('nav-active');
-                // Restaurar clases base de hover/texto
                 if (link.closest('#desktop-nav-links')) {
                     link.classList.add('text-gray-100', 'hover:text-yellow-400');
                 } else if (link.closest('#mobile-menu')) {
                     link.classList.add('text-white', 'hover:bg-gray-700', 'hover:text-yellow-400');
                 }
-
-                // Comprobar si el href del enlace coincide con el ID de la sección actual (quitando '#')
                 if (link.getAttribute('href') === `#${currentSectionId}`) {
                     link.classList.add('nav-active');
-                    // Quitar estilos de hover cuando está activo para evitar conflictos
                     link.classList.remove('hover:text-yellow-400', 'hover:bg-gray-700');
                 }
             });
@@ -295,7 +281,6 @@
 
         // --- Configuración Inicial en DOMContentLoaded ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Configurar idioma (lógica existente)
             const userLang = navigator.language || navigator.userLanguage; 
             const primaryLang = userLang.split('-')[0]; 
             if (primaryLang === "en") {
@@ -303,17 +288,9 @@
             } else {
                 setLanguage("es"); 
             }
-
-            // Llamada inicial para establecer el enlace activo basado en el scroll actual o hash
-            // El navegador manejará el scroll al hash si está presente en la carga inicial.
-            // Luego updateActiveNavLinkOnScroll lo resaltará correctamente.
-            // Un pequeño retraso puede ayudar si hay elementos que tardan en calcular su altura.
             setTimeout(updateActiveNavLinkOnScroll, 150); 
-
-            // Añadir listener de scroll
             window.addEventListener('scroll', updateActiveNavLinkOnScroll);
             
-            // Lógica de envío de formulario (existente)
             const contactForm = document.getElementById('contact-form');
             const formStatusMessage = document.getElementById('form-status-message');
 
@@ -364,7 +341,7 @@
             }
         });
 
-        // --- Lógica de Traducción (existente, sin cambios) ---
+        // --- Lógica de Traducción ---
         const translations = {
             "es": {
                 "page_title": "S.S.A. - Soluciones Sostenibles Automatizadas",
@@ -373,7 +350,7 @@
                 "nav_servicios": "Servicios",
                 "nav_sobre_nosotros": "Sobre Nosotros",
                 "nav_contacto": "Contacto",
-                "hero_title_1": "Impulsa tu Negocio con",
+                "hero_title_prefix": "Impulsa tu Negocio con ", // Clave modificada/añadida
                 "hero_title_highlight": "Inteligencia Artificial Sostenible",
                 "hero_subtitle": "En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.",
                 "hero_cta": "Solicita una Consulta Gratuita",
@@ -419,7 +396,7 @@
                 "nav_servicios": "Services",
                 "nav_sobre_nosotros": "About Us",
                 "nav_contacto": "Contact",
-                "hero_title_1": "Boost Your Business with",
+                "hero_title_prefix": "Boost Your Business with ", // Clave modificada/añadida
                 "hero_title_highlight": "Sustainable Artificial Intelligence",
                 "hero_subtitle": "At S.S.A., we are your AI agency dedicated to transforming processes, creating conversational experiences, and developing custom solutions for your company's efficiency and sustainability.",
                 "hero_cta": "Request a Free Consultation",
