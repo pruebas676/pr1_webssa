@@ -47,6 +47,11 @@
         main > section {
             display: block; /* Aseguramos que sean visibles */
         }
+        .whatsapp-icon-svg {
+            width: 1.25em; /* Equivalente a text-xl para mantener consistencia con otros iconos */
+            height: 1.25em;
+            fill: currentColor; /* Para que tome el color del texto (amarillo en este caso) o se puede fijar */
+        }
     </style>
 </head>
 <body class="text-gray-100">
@@ -164,7 +169,14 @@
                         <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_info_title">Información de Contacto</h3>
                         <div class="space-y-4 text-base sm:text-lg text-gray-300">
                             <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📧</span> antonio.banderas.s.s.a@gmail.com</p>
-                            <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📞</span> (+31) 6 29426697</p>
+                            <p class="flex items-center">
+                                <a href="https://wa.me/31629426697" target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-yellow-300 transition-colors duration-300">
+                                    <svg class="whatsapp-icon-svg mr-3 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-26.7l-7.1-4.2-67.7 17.9 18.4-65.6-4.7-7.1c-18.4-27.9-28.6-60.5-28.6-93.7 0-108.8 88.1-196.9 196.9-196.9 53 0 102.6 20.5 139.8 57.6 37.1 37.1 57.6 86.8 57.6 139.8 0 108.8-88.2 196.9-196.9 196.9zm101.7-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                                    </svg>
+                                    (+31) 6 29426697
+                                </a>
+                            </p>
                             <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📍</span> <span data-translate="contact_location">Róterdam</span></p>
                         </div>
                         <p class="text-gray-400 mt-6 sm:mt-8 text-sm sm:text-base" data-translate="contact_ready_text">Estamos listos para transformar tu negocio con soluciones de IA.</p>
@@ -350,7 +362,7 @@
                 "nav_servicios": "Servicios",
                 "nav_sobre_nosotros": "Sobre Nosotros",
                 "nav_contacto": "Contacto",
-                "hero_title_prefix": "Impulsa tu Negocio con ", // Clave modificada/añadida
+                "hero_title_prefix": "Impulsa tu Negocio con ", 
                 "hero_title_highlight": "Inteligencia Artificial Sostenible",
                 "hero_subtitle": "En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.",
                 "hero_cta": "Solicita una Consulta Gratuita",
@@ -396,7 +408,7 @@
                 "nav_servicios": "Services",
                 "nav_sobre_nosotros": "About Us",
                 "nav_contacto": "Contact",
-                "hero_title_prefix": "Boost Your Business with ", // Clave modificada/añadida
+                "hero_title_prefix": "Boost Your Business with ", 
                 "hero_title_highlight": "Sustainable Artificial Intelligence",
                 "hero_subtitle": "At S.S.A., we are your AI agency dedicated to transforming processes, creating conversational experiences, and developing custom solutions for your company's efficiency and sustainability.",
                 "hero_cta": "Request a Free Consultation",
