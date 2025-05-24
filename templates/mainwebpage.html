@@ -8,12 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html {
-            scroll-behavior: smooth; /* Para el scroll suave */
+            scroll-behavior: smooth; 
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Fondo oscuro */
-            color: #e5e7eb; /* Texto gris claro por defecto */
+            background-color: #1a202c; 
+            color: #e5e7eb; 
         }
         .bg-gradient-futuristic {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
@@ -22,35 +22,98 @@
             width: 40px;
             height: 40px;
         }
-        /* Estilos para el menú móvil */
         .mobile-menu {
-            display: none; /* Oculto por defecto */
+            display: none; 
         }
         .mobile-menu.active {
-            display: block; /* Visible cuando está activo */
+            display: block; 
         }
-        /* Mejoras visuales sutiles */
         input[type="text"], input[type="email"], textarea {
-            background-color: #2d3748; /* Un poco más claro que el fondo de la tarjeta */
+            background-color: #2d3748; 
             border-color: #4a5568;
             color: #e2e8f0;
         }
         input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
             color: #a0aec0;
         }
-        /* Estilo para el enlace de navegación activo */
         .nav-active {
-            color: #facc15 !important; /* Amarillo S.S.A. */
+            color: #facc15 !important; 
             font-weight: 600 !important;
         }
-        /* Las secciones ahora son visibles por defecto */
-        main > section {
-            display: block; /* Aseguramos que sean visibles */
+        /* Secciones principales visibles por defecto, legales ocultas */
+        main > section#inicio,
+        main > section#servicios,
+        main > section#sobre-nosotros,
+        main > section#contacto {
+            display: block;
+        }
+        main > section#privacidad,
+        main > section#terminos {
+            display: none; /* Ocultas por defecto, JS las mostrará */
         }
         .whatsapp-icon-svg {
-            width: 1.25em; /* Equivalente a text-xl para mantener consistencia con otros iconos */
+            width: 1.25em; 
             height: 1.25em;
-            fill: currentColor; /* Para que tome el color del texto (amarillo en este caso) o se puede fijar */
+            fill: currentColor; 
+        }
+        .legal-section { 
+            background-color: #111827; 
+            padding-top: 5rem; 
+            padding-bottom: 5rem; 
+            padding-left: 1rem; 
+            padding-right: 1rem; 
+        }
+        @media (min-width: 640px) { 
+            .legal-section {
+                padding-left: 1.5rem; 
+                padding-right: 1.5rem; 
+            }
+        }
+        @media (min-width: 1024px) { 
+            .legal-section {
+                padding-left: 2rem; 
+                padding-right: 2rem; 
+            }
+        }
+        .legal-section h2 {
+            font-size: 2.25rem; 
+            line-height: 2.5rem;
+            font-weight: 700; 
+            text-align: center;
+            color: #ffffff; 
+            margin-bottom: 3rem; 
+        }
+        .legal-section h3 {
+            font-size: 1.5rem; 
+            line-height: 2rem;
+            font-weight: 600; 
+            color: #facc15; 
+            margin-top: 2rem; 
+            margin-bottom: 1rem; 
+        }
+        .legal-section p, .legal-section ul {
+            color: #d1d5db; 
+            margin-bottom: 1rem; 
+            line-height: 1.75; 
+        }
+        .legal-section ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+        .legal-section strong {
+            color: #e5e7eb; 
+        }
+         .legal-section .disclaimer {
+            background-color: #1f2937; 
+            border-left: 4px solid #facc15; 
+            padding: 1rem; 
+            margin-top: 1.5rem; 
+            margin-bottom: 1.5rem; 
+            border-radius: 0.375rem; 
+        }
+        .legal-section .disclaimer p {
+            margin-bottom: 0;
+            color: #f3f4f6; 
         }
     </style>
 </head>
@@ -70,7 +133,7 @@
                 <a href="#servicios" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_servicios">Servicios</a>
                 <a href="#sobre-nosotros" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_sobre_nosotros">Sobre Nosotros</a>
                 <a href="#contacto" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_contacto">Contacto</a>
-            </div>
+                </div>
             <button id="mobile-menu-button" class="md:hidden text-yellow-400 text-3xl">
                 ☰
             </button>
@@ -80,7 +143,7 @@
             <a href="#servicios" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_servicios">Servicios</a>
             <a href="#sobre-nosotros" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_sobre_nosotros">Sobre Nosotros</a>
             <a href="#contacto" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_contacto">Contacto</a>
-        </div>
+            </div>
     </header>
 
     <main>
@@ -210,6 +273,145 @@
                 </div>
             </div>
         </section>
+
+        <section id="privacidad" class="legal-section">
+            <div class="container mx-auto">
+                <h2 data-translate="privacy_title">Política de Privacidad</h2>
+                <p data-translate="privacy_last_updated">Última actualización: 24 de mayo de 2025</p>
+                
+                <div class="disclaimer">
+                    <p data-translate="legal_disclaimer_intro"><strong>Importante:</strong> El siguiente texto es un modelo genérico y no constituye asesoramiento legal. Debes adaptar este contenido a las especificidades de tu negocio y consultar con un profesional legal para asegurar el cumplimiento de todas las leyes y regulaciones aplicables, incluyendo el RGPD.</p>
+                </div>
+
+                <p data-translate="privacy_p1">S.S.A. ("nosotros", "nuestro/a"), con domicilio en [Tu Dirección Completa, Róterdam, Países Bajos], y correo electrónico de contacto [Tu Email de Contacto para Privacidad], se compromete a proteger y respetar tu privacidad de acuerdo con el Reglamento General de Protección de Datos (RGPD) (UE) 2016/679 y otras leyes de protección de datos aplicables. Esta Política de Privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos tus datos personales cuando utilizas nuestro sitio web [Indicar URL del sitio web aquí, por ejemplo, www.ssa-soluciones.com] (el "Sitio Web") y nuestros servicios.</p>
+
+                <h3 data-translate="privacy_h_data_controller">1. Responsable del Tratamiento de Datos</h3>
+                <p data-translate="privacy_p_data_controller">El responsable del tratamiento de tus datos personales es S.S.A., [Tu Nombre o Nombre de la Empresa], [Tu Número de Identificación Fiscal/Empresa si aplica], con domicilio en [Tu Dirección Completa, Róterdam, Países Bajos]. Puedes contactarnos en [Tu Email de Contacto para Privacidad].</p>
+
+                <h3 data-translate="privacy_h_info_collect">2. Qué Datos Personales Recopilamos y Por Qué</h3>
+                <p data-translate="privacy_p_info_collect_intro">Recopilamos diferentes tipos de datos personales para diversos fines con el fin de proporcionarte y mejorar nuestros Servicios.</p>
+                <strong data-translate="privacy_strong_personal_data">Datos Proporcionados Directamente:</strong>
+                <p data-translate="privacy_p_personal_data">Cuando utilizas nuestro formulario de contacto o solicitas nuestros servicios, podemos pedirte que nos proporciones cierta información de identificación personal que puede ser utilizada para contactarte o identificarte ("Datos Personales"). Esto puede incluir, entre otros: nombre y apellidos, dirección de correo electrónico, número de teléfono, nombre de la empresa y cualquier otra información que decidas proporcionarnos en tu mensaje.</p>
+                <p data-translate="privacy_p_purpose_personal_data">La base legal para el tratamiento de estos datos es tu consentimiento (Art. 6.1.a RGPD) al enviarnos el formulario, y la necesidad de procesar tu solicitud para la posible ejecución de un contrato o medidas precontractuales (Art. 6.1.b RGPD).</p>
+                
+                <strong data-translate="privacy_strong_usage_data">Datos de Uso y Cookies:</strong>
+                <p data-translate="privacy_p_usage_data">También podemos recopilar información sobre cómo se accede y utiliza el Sitio Web ("Datos de Uso"). Estos Datos de Uso pueden incluir información como la dirección de Protocolo de Internet de tu ordenador (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las páginas de nuestro Sitio Web que visitas, la hora y fecha de tu visita, el tiempo dedicado a esas páginas, identificadores únicos de dispositivos y otros datos de diagnóstico.</p>
+                <p data-translate="privacy_p_cookies">Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro Sitio Web y mantener cierta información. Las cookies son archivos con una pequeña cantidad de datos que pueden incluir un identificador único anónimo. Puedes indicar a tu navegador que rechace todas las cookies o que indique cuándo se envía una cookie. Sin embargo, si no aceptas las cookies, es posible que no puedas utilizar algunas partes de nuestro Sitio Web. La base legal para el uso de cookies técnicas es nuestro interés legítimo en asegurar el correcto funcionamiento del sitio (Art. 6.1.f RGPD). Para otras cookies (analíticas, de marketing), solicitaremos tu consentimiento previo (Art. 6.1.a RGPD).</p>
+
+                <h3 data-translate="privacy_h_use_info">3. Cómo Utilizamos Tus Datos</h3>
+                <p data-translate="privacy_p_use_info">S.S.A. utiliza los datos recopilados para diversos fines:</p>
+                <ul>
+                    <li data-translate="privacy_li_use_1">Para proporcionar y mantener nuestro Sitio Web y Servicios.</li>
+                    <li data-translate="privacy_li_use_2">Para notificarte sobre cambios en nuestros Servicios.</li>
+                    <li data-translate="privacy_li_use_3">Para permitirte participar en funciones interactivas de nuestro Servicio cuando elijas hacerlo.</li>
+                    <li data-translate="privacy_li_use_4">Para proporcionar atención y soporte al cliente.</li>
+                    <li data-translate="privacy_li_use_5">Para recopilar análisis o información valiosa para que podamos mejorar nuestro Sitio Web y Servicios.</li>
+                    <li data-translate="privacy_li_use_6">Para monitorear el uso de nuestro Sitio Web.</li>
+                    <li data-translate="privacy_li_use_7">Para detectar, prevenir y abordar problemas técnicos.</li>
+                    <li data-translate="privacy_li_use_8">Para cumplir con nuestras obligaciones legales.</li>
+                </ul>
+
+                <h3 data-translate="privacy_h_data_retention">4. Conservación de Datos</h3>
+                <p data-translate="privacy_p_data_retention">Conservaremos tus Datos Personales solo durante el tiempo que sea necesario para los fines establecidos en esta Política de Privacidad. Conservaremos y utilizaremos tus Datos Personales en la medida necesaria para cumplir con nuestras obligaciones legales (por ejemplo, si estamos obligados a conservar tus datos para cumplir con las leyes aplicables), resolver disputas y hacer cumplir nuestros acuerdos y políticas legales.</p>
+
+                <h3 data-translate="privacy_h_data_transfer">5. Transferencia de Datos</h3>
+                <p data-translate="privacy_p_data_transfer">Tu información, incluidos los Datos Personales, puede ser transferida a —y mantenida en— ordenadores ubicados fuera de tu estado, provincia, país u otra jurisdicción gubernamental donde las leyes de protección de datos pueden diferir de las de tu jurisdicción. Si te encuentras fuera de los Países Bajos y eliges proporcionarnos información, ten en cuenta que transferimos los datos, incluidos los Datos Personales, a los Países Bajos y los procesamos allí. Tu consentimiento a esta Política de Privacidad seguido de tu envío de dicha información representa tu acuerdo con esa transferencia. S.S.A. tomará todas las medidas razonablemente necesarias para garantizar que tus datos se traten de forma segura y de acuerdo con esta Política de Privacidad y no se realizará ninguna transferencia de tus Datos Personales a una organización o país a menos que existan controles adecuados, incluida la seguridad de tus datos y otra información personal.</p>
+
+                <h3 data-translate="privacy_h_your_rights_gdpr">6. Tus Derechos de Protección de Datos Bajo el RGPD</h3>
+                <p data-translate="privacy_p_your_rights_gdpr_intro">Si eres residente del Espacio Económico Europeo (EEE), tienes ciertos derechos de protección de datos. S.S.A. tiene como objetivo tomar medidas razonables para permitirte corregir, modificar, eliminar o limitar el uso de tus Datos Personales.</p>
+                <p data-translate="privacy_p_your_rights_list_intro">Si deseas ser informado sobre qué Datos Personales tenemos sobre ti y si quieres que se eliminen de nuestros sistemas, por favor contáctanos. En ciertas circunstancias, tienes los siguientes derechos de protección de datos:</p>
+                <ul>
+                    <li data-translate="privacy_li_right_access"><strong>El derecho de acceso:</strong> Tienes derecho a solicitar copias de tus datos personales.</li>
+                    <li data-translate="privacy_li_right_rectification"><strong>El derecho de rectificación:</strong> Tienes derecho a solicitar que corrijamos cualquier información que consideres inexacta. También tienes derecho a solicitar que completemos la información que consideres incompleta.</li>
+                    <li data-translate="privacy_li_right_erasure"><strong>El derecho de supresión ("derecho al olvido"):</strong> Tienes derecho a solicitar que eliminemos tus datos personales, bajo ciertas condiciones.</li>
+                    <li data-translate="privacy_li_right_restriction"><strong>El derecho a la limitación del tratamiento:</strong> Tienes derecho a solicitar que restrinjamos el tratamiento de tus datos personales, bajo ciertas condiciones.</li>
+                    <li data-translate="privacy_li_right_objection"><strong>El derecho de oposición al tratamiento:</strong> Tienes derecho a oponerte a nuestro tratamiento de tus datos personales, bajo ciertas condiciones, especialmente cuando la base legal es nuestro interés legítimo.</li>
+                    <li data-translate="privacy_li_right_portability"><strong>El derecho a la portabilidad de los datos:</strong> Tienes derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones.</li>
+                    <li data-translate="privacy_li_right_withdraw_consent"><strong>El derecho a retirar el consentimiento:</strong> También tienes derecho a retirar tu consentimiento en cualquier momento cuando S.S.A. se basó en tu consentimiento para procesar tu información personal.</li>
+                </ul>
+                <p data-translate="privacy_p_exercise_rights">Para ejercer cualquiera de estos derechos, por favor contáctanos en [Tu Email de Contacto para Privacidad]. Responderemos a tu solicitud en el plazo de un mes. Ten en cuenta que podemos pedirte que verifiques tu identidad antes de responder a dichas solicitudes.</p>
+                <p data-translate="privacy_p_complaint_authority">Tienes derecho a presentar una queja ante una Autoridad de Protección de Datos sobre nuestra recopilación y uso de tus Datos Personales. Para más información, por favor contacta a tu autoridad local de protección de datos en el Espacio Económico Europeo (EEE). En los Países Bajos, esta es la Autoriteit Persoonsgegevens.</p>
+
+                <h3 data-translate="privacy_h_security_info">7. Seguridad de los Datos</h3>
+                <p data-translate="privacy_p_security_info">La seguridad de tus datos es importante para nosotros, pero recuerda que ningún método de transmisión por Internet o método de almacenamiento electrónico es 100% seguro. Si bien nos esforzamos por utilizar medios comercialmente aceptables para proteger tus Datos Personales, no podemos garantizar su seguridad absoluta.</p>
+
+                <h3 data-translate="privacy_h_service_providers">8. Proveedores de Servicios</h3>
+                <p data-translate="privacy_p_service_providers">Podemos emplear a terceras empresas e individuos para facilitar nuestro Servicio ("Proveedores de Servicios"), para proporcionar el Servicio en nuestro nombre, para realizar servicios relacionados con el Servicio o para ayudarnos a analizar cómo se utiliza nuestro Servicio. Estos terceros tienen acceso a tus Datos Personales solo para realizar estas tareas en nuestro nombre y están obligados a no divulgarlos ni utilizarlos para ningún otro propósito.</p>
+
+                <h3 data-translate="privacy_h_links_other_sites">9. Enlaces a Otros Sitios</h3>
+                <p data-translate="privacy_p_links_other_sites">Nuestro Servicio puede contener enlaces a otros sitios que no son operados por nosotros. Si haces clic en un enlace de un tercero, serás dirigido al sitio de ese tercero. Te recomendamos encarecidamente que revises la Política de Privacidad de cada sitio que visites. No tenemos control ni asumimos ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de los sitios o servicios de terceros.</p>
+
+                <h3 data-translate="privacy_h_policy_children">10. Privacidad de los Niños</h3>
+                <p data-translate="privacy_p_policy_children">Nuestro Servicio no se dirige a nadie menor de 16 años ("Niños"). No recopilamos conscientemente información de identificación personal de nadie menor de 16 años. Si eres padre o tutor y sabes que tus Hijos nos han proporcionado Datos Personales, por favor contáctanos. Si nos damos cuenta de que hemos recopilado Datos Personales de niños sin verificación del consentimiento parental, tomamos medidas para eliminar esa información de nuestros servidores.</p>
+
+                <h3 data-translate="privacy_h_changes_policy">11. Cambios a Esta Política de Privacidad</h3>
+                <p data-translate="privacy_p_changes_policy">Podemos actualizar nuestra Política de Privacidad de vez en cuando. Te notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la fecha de "última actualización" en la parte superior de esta Política de Privacidad. Se te aconseja revisar esta Política de Privacidad periódicamente para cualquier cambio. Los cambios a esta Política de Privacidad son efectivos cuando se publican en esta página.</p>
+
+                <h3 data-translate="privacy_h_contact_us">12. Contáctanos</h3>
+                <p data-translate="privacy_p_contact_us">Si tienes alguna pregunta sobre esta Política de Privacidad, por favor contáctanos: Por correo electrónico: [Tu Email de Contacto para Privacidad]. O a través de nuestra sección de <a href="#contacto" class="text-yellow-400 hover:text-yellow-300">Contacto</a>.</p>
+            </div>
+        </section>
+
+        <section id="terminos" class="legal-section">
+            <div class="container mx-auto">
+                <h2 data-translate="terms_title">Términos y Condiciones de Uso</h2>
+                <p data-translate="terms_last_updated">Última actualización: 24 de mayo de 2025</p>
+
+                <div class="disclaimer">
+                     <p data-translate="legal_disclaimer_intro_terms"><strong>Importante:</strong> El siguiente texto es un modelo genérico y no constituye asesoramiento legal. Debes adaptar este contenido a las especificidades de tu negocio y consultar con un profesional legal para asegurar el cumplimiento de todas las leyes y regulaciones aplicables.</p>
+                </div>
+
+                <p data-translate="terms_p1">Estos Términos y Condiciones de Uso ("Términos") rigen tu acceso y uso del sitio web [Indicar URL del sitio web aquí, por ejemplo, www.ssa-soluciones.com] (el "Sitio Web") y todos los servicios relacionados ofrecidos por S.S.A. ("nosotros", "nuestro/a"). Al acceder o utilizar el Sitio Web, aceptas estar legalmente obligado por estos Términos. Si no estás de acuerdo con alguno de estos Términos, no utilices el Sitio Web.</p>
+
+                <h3 data-translate="terms_h_definitions">1. Definiciones</h3>
+                <p data-translate="terms_p_definitions"><strong>"Servicios"</strong> se refiere a los servicios de consultoría y desarrollo de inteligencia artificial, automatización de procesos y chatbots ofrecidos por S.S.A. a través del Sitio Web o por otros medios.</p>
+                <p data-translate="terms_p_user"><strong>"Usuario"</strong> o <strong>"tú"</strong> se refiere a cualquier persona que acceda o utilice el Sitio Web o los Servicios.</p>
+
+                <h3 data-translate="terms_h_use_website">2. Uso del Sitio Web y los Servicios</h3>
+                <p data-translate="terms_p_use_website_1"><strong>Elegibilidad:</strong> Debes tener al menos 18 años y la capacidad legal para celebrar contratos vinculantes para utilizar nuestros Servicios. Si utilizas los Servicios en nombre de una organización, declaras y garantizas que tienes la autoridad para obligar a dicha organización a estos Términos.</p>
+                <p data-translate="terms_p_use_website_2"><strong>Conducta Aceptable:</strong> Aceptas utilizar el Sitio Web y los Servicios únicamente para fines lícitos y de acuerdo con estos Términos. No utilizarás el Sitio Web: de ninguna manera que viole cualquier ley o regulación local, nacional o internacional aplicable; para transmitir, o procurar el envío de, cualquier material publicitario o promocional no solicitado o no autorizado o cualquier otra forma de solicitud similar (spam); para suplantar o intentar suplantar a la Empresa, un empleado de la Empresa, otro usuario o cualquier otra persona o entidad.</p>
+                
+                <h3 data-translate="terms_h_services_consulting">3. Servicios de Consultoría y Desarrollo</h3>
+                <p data-translate="terms_p_services_description">Los detalles específicos de los Servicios, incluyendo alcance, entregables, plazos y tarifas, se acordarán por separado en un acuerdo de servicios o propuesta por escrito entre tú y S.S.A.</p>
+                <p data-translate="terms_p_no_guarantee">S.S.A. se esforzará por proporcionar Servicios de alta calidad. Sin embargo, no garantizamos ningún resultado específico o retorno de la inversión derivado del uso de nuestros Servicios, ya que los resultados pueden variar según numerosos factores fuera de nuestro control.</p>
+
+                <h3 data-translate="terms_h_intellectual_property">4. Propiedad Intelectual</h3>
+                <p data-translate="terms_p_intellectual_property_website">El Sitio Web y todo su contenido, características y funcionalidad (incluyendo, pero no limitado a, toda la información, software, texto, pantallas, imágenes, video y audio, y el diseño, selección y disposición de los mismos) son propiedad de S.S.A., sus licenciantes u otros proveedores de dicho material y están protegidos por las leyes de derechos de autor, marcas registradas, patentes, secretos comerciales y otras leyes de propiedad intelectual o derechos de propiedad de los Países Bajos e internacionales.</p>
+                <p data-translate="terms_p_intellectual_property_services">Salvo que se acuerde lo contrario por escrito en un acuerdo de servicios específico, cualquier propiedad intelectual desarrollada por S.S.A. durante la prestación de los Servicios (por ejemplo, código de software personalizado, algoritmos, diseños) seguirá siendo propiedad de S.S.A. o sus licenciantes. Se te concederá una licencia para utilizar dichos desarrollos según los términos del acuerdo de servicios.</p>
+
+                <h3 data-translate="terms_h_confidentiality">5. Confidencialidad</h3>
+                <p data-translate="terms_p_confidentiality">Ambas partes pueden recibir información confidencial de la otra. Cada parte se compromete a no divulgar la información confidencial de la otra parte a terceros y a utilizarla únicamente para los fines de la prestación o recepción de los Servicios, a menos que la ley exija lo contrario o con el consentimiento previo por escrito de la parte divulgadora.</p>
+
+                <h3 data-translate="terms_h_limitation_liability">6. Limitación de Responsabilidad</h3>
+                <p data-translate="terms_p_limitation_liability">En la máxima medida permitida por la ley aplicable, en ningún caso S.S.A., sus afiliados, directores, empleados, agentes, proveedores o licenciantes serán responsables por daños indirectos, punitivos, incidentales, especiales, consecuentes o ejemplares, incluyendo, sin limitación, daños por pérdida de beneficios, fondo de comercio, uso, datos u otras pérdidas intangibles, que surjan de o estén relacionados con el uso o la incapacidad de usar el Sitio Web o los Servicios.</p>
+                <p data-translate="terms_p_liability_cap">En la máxima medida permitida por la ley aplicable, la responsabilidad total agregada de S.S.A. hacia ti por todas las reclamaciones que surjan de o estén relacionadas con el uso o la incapacidad de usar el Sitio Web o los Servicios o de otro modo bajo estos Términos, ya sea por contrato, agravio o de otro modo, se limitará a la cantidad que nos hayas pagado por los Servicios en los seis (6) meses anteriores a la reclamación que dio lugar a la responsabilidad, o cien euros (€100.00), lo que sea mayor.</p>
+
+                <h3 data-translate="terms_h_disclaimer_warranties">7. Descargo de Garantías</h3>
+                <p data-translate="terms_p_disclaimer_warranties">El Sitio Web y los Servicios se proporcionan "TAL CUAL" y "SEGÚN DISPONIBILIDAD". S.S.A. renuncia expresamente a todas las garantías de cualquier tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, las garantías implícitas de comerciabilidad, idoneidad para un propósito particular y no infracción. No garantizamos que el Sitio Web o los Servicios serán ininterrumpidos, oportunos, seguros o libres de errores.</p>
+
+                <h3 data-translate="terms_h_indemnification">8. Indemnización</h3>
+                <p data-translate="terms_p_indemnification">Aceptas defender, indemnizar y eximir de responsabilidad a S.S.A. y sus licenciatarios y licenciantes, y sus empleados, contratistas, agentes, funcionarios y directores, de y contra todas y cada una de las reclamaciones, daños, obligaciones, pérdidas, responsabilidades, costos o deudas, y gastos (incluyendo pero no limitado a los honorarios de abogados), resultantes de o que surjan de a) tu uso y acceso al Sitio Web o los Servicios, o b) un incumplimiento de estos Términos.</p>
+                
+                <h3 data-translate="terms_h_termination">9. Terminación</h3>
+                <p data-translate="terms_p_termination">Podemos terminar o suspender tu acceso a nuestro Sitio Web y Servicios inmediatamente, sin previo aviso ni responsabilidad, por cualquier motivo, incluyendo, entre otros, si incumples los Términos. Tras la terminación, tu derecho a utilizar el Sitio Web y los Servicios cesará inmediatamente.</p>
+
+                <h3 data-translate="terms_h_governing_law">10. Ley Aplicable y Jurisdicción</h3>
+                <p data-translate="terms_p_governing_law">Estos Términos se regirán e interpretarán de acuerdo con las leyes de los Países Bajos, sin tener en cuenta sus disposiciones sobre conflicto de leyes. Aceptas someterte a la jurisdicción exclusiva de los tribunales ubicados en Róterdam, Países Bajos, para la resolución de cualquier disputa que surja de o esté relacionada con estos Términos o el Sitio Web o los Servicios.</p>
+
+                <h3 data-translate="terms_h_changes_terms">11. Cambios a los Términos</h3>
+                <p data-translate="terms_p_changes_terms">Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, intentaremos proporcionar al menos 30 días de aviso antes de que entren en vigor los nuevos términos, publicando los términos actualizados en el Sitio Web. Lo que constituye un cambio material se determinará a nuestra sola discreción. Tu uso continuado del Sitio Web o los Servicios después de que dichos cambios entren en vigor constituye tu aceptación de los nuevos Términos.</p>
+
+                <h3 data-translate="terms_h_severability">12. Divisibilidad</h3>
+                <p data-translate="terms_p_severability">Si alguna disposición de estos Términos se considera inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor.</p>
+
+                <h3 data-translate="terms_h_entire_agreement">13. Acuerdo Completo</h3>
+                <p data-translate="terms_p_entire_agreement">Estos Términos, junto con nuestra Política de Privacidad y cualquier otro aviso legal publicado por nosotros en el Sitio Web, constituirán el acuerdo completo entre tú y S.S.A. con respecto al Sitio Web y los Servicios, y sustituyen todos los acuerdos anteriores o contemporáneos, ya sean escritos u orales.</p>
+
+                <h3 data-translate="terms_h_contact_us">14. Contáctanos</h3>
+                <p data-translate="terms_p_contact_us">Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en: [Tu Email de Contacto para Términos] o a través de nuestra sección de <a href="#contacto" class="text-yellow-400 hover:text-yellow-300">Contacto</a>.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-gray-950 py-8 md:py-10 px-4 text-center text-gray-400">
@@ -223,31 +425,34 @@
             </div>
             <p class="mb-3 sm:mb-4 text-sm sm:text-base" data-translate="footer_copyright">&copy; 2025 S.S.A. Todos los derechos reservados.</p>
             <div class="space-x-4 text-xs sm:text-sm">
-                <a href="#" class="hover:text-white transition duration-300" data-translate="footer_privacy">Política de Privacidad</a>
-                <a href="#" class="hover:text-white transition duration-300" data-translate="footer_terms">Términos de Servicio</a>
+                <a href="#privacidad" class="hover:text-white transition duration-300" data-translate="nav_privacidad_footer">Política de Privacidad</a>
+                <a href="#terminos" class="hover:text-white transition duration-300" data-translate="nav_terminos_footer">Términos de Uso</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- Elementos del DOM cacheados ---
         const headerElement = document.querySelector('header');
         const allPageSections = document.querySelectorAll('main > section');
+        const mainContentSectionIds = ['inicio', 'servicios', 'sobre-nosotros', 'contacto'];
+        const legalContentSectionIds = ['privacidad', 'terminos'];
+
         const allNavigationLinks = [
-            ...document.querySelectorAll('#desktop-nav-links a'),
-            ...document.querySelectorAll('#mobile-menu a')
-        ];
+            ...document.querySelectorAll('#desktop-nav-links a'), 
+            ...document.querySelectorAll('#mobile-menu a'), 
+            ...document.querySelectorAll('footer a[href^="#"]'),
+            document.querySelector('header a[href="#inicio"]') 
+        ].filter(link => link); 
+
         const mobileMenuButtonElement = document.getElementById('mobile-menu-button');
         const mobileMenuElement = document.getElementById('mobile-menu');
 
-        // --- Lógica del Menú Móvil ---
         if (mobileMenuButtonElement && mobileMenuElement) {
             mobileMenuButtonElement.addEventListener('click', () => {
                 mobileMenuElement.classList.toggle('active');
                 mobileMenuButtonElement.innerHTML = mobileMenuElement.classList.contains('active') ? '✕' : '☰';
             });
 
-            // Cerrar menú móvil al hacer clic en un enlace
             mobileMenuElement.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenuElement.classList.remove('active');
@@ -256,52 +461,128 @@
             });
         }
         
-        // --- Resaltar Enlace Activo en Scroll ---
-        function updateActiveNavLinkOnScroll() {
-            if (!headerElement || allPageSections.length === 0 || allNavigationLinks.length === 0) {
-                return;
-            }
-            const headerHeight = headerElement.offsetHeight;
-            let currentSectionId = '';
-
-            for (let i = allPageSections.length - 1; i >= 0; i--) {
-                const section = allPageSections[i];
-                const sectionTop = section.offsetTop - headerHeight - 20; 
-                if (window.scrollY >= sectionTop) {
-                    currentSectionId = section.id;
-                    break; 
-                }
-            }
-            
-            if (!currentSectionId && allPageSections.length > 0 && window.scrollY < (allPageSections[0].offsetTop - headerHeight - 20)) {
-                currentSectionId = allPageSections[0].id;
-            }
-
+        function updateActiveLink(targetPageId) {
             allNavigationLinks.forEach(link => {
                 link.classList.remove('nav-active');
-                if (link.closest('#desktop-nav-links')) {
-                    link.classList.add('text-gray-100', 'hover:text-yellow-400');
+                if (link.closest('#desktop-nav-links') || link.closest('footer') || link.parentElement.matches('header > nav > div:first-child')) {
+                     link.classList.remove('text-yellow-400', 'hover:text-yellow-300'); 
+                    if (link.closest('footer')) {
+                        link.classList.add('text-gray-400', 'hover:text-white');
+                    } else if (!link.dataset.translate?.includes('company_name_short')) { 
+                         link.classList.add('text-gray-100', 'hover:text-yellow-400');
+                    }
                 } else if (link.closest('#mobile-menu')) {
                     link.classList.add('text-white', 'hover:bg-gray-700', 'hover:text-yellow-400');
                 }
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                
+                const linkHref = link.getAttribute('href');
+                if (linkHref === `#${targetPageId}`) {
                     link.classList.add('nav-active');
-                    link.classList.remove('hover:text-yellow-400', 'hover:bg-gray-700');
+                    link.classList.remove('hover:text-yellow-400', 'hover:bg-gray-700', 'hover:text-white', 'text-gray-100', 'text-gray-400');
                 }
             });
+            const logoLink = document.querySelector('header a[data-translate="company_name_short"]');
+            if (logoLink && `#${targetPageId}` !== logoLink.getAttribute('href')) {
+                logoLink.classList.add('text-yellow-400');
+                logoLink.classList.remove('nav-active'); 
+            } else if (logoLink && `#${targetPageId}` === logoLink.getAttribute('href')) {
+                logoLink.classList.add('nav-active'); 
+            }
         }
 
-        // --- Configuración Inicial en DOMContentLoaded ---
+        function showPage(pageId) {
+            let effectivePageId = pageId;
+            const allValidPageIds = [...mainContentSectionIds, ...legalContentSectionIds];
+
+            if (!effectivePageId || !allValidPageIds.includes(effectivePageId)) {
+                effectivePageId = 'inicio';
+            }
+            
+            if (window.location.hash !== `#${effectivePageId}`) {
+                 history.pushState(null, null, `#${effectivePageId}`); 
+            }
+
+            if (mainContentSectionIds.includes(effectivePageId)) {
+                allPageSections.forEach(section => {
+                    section.style.display = mainContentSectionIds.includes(section.id) ? 'block' : 'none';
+                });
+                const targetSectionElement = document.getElementById(effectivePageId);
+                if (targetSectionElement) {
+                    const headerHeight = headerElement ? headerElement.offsetHeight : 0;
+                    const scrollToPosition = targetSectionElement.offsetTop - headerHeight;
+                    if (pageId !== 'inicio' || window.scrollY > 0) { 
+                        window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+                    } else {
+                         window.scrollTo({ top: scrollToPosition}); 
+                    }
+                }
+            } else if (legalContentSectionIds.includes(effectivePageId)) {
+                allPageSections.forEach(section => {
+                    section.style.display = section.id === effectivePageId ? 'block' : 'none';
+                });
+                window.scrollTo({ top: 0, behavior: 'auto' }); 
+            }
+            updateActiveLink(effectivePageId);
+        }
+
+        function handleNavigation() {
+            const hash = window.location.hash;
+            let pageId = 'inicio'; 
+            if (hash && hash.startsWith('#') && hash.length > 1) {
+                pageId = hash.substring(1);
+            } else if (!hash || hash === '#') {
+                history.replaceState(null, null, '#inicio');
+            }
+            showPage(pageId);
+        }
+        
+        function updateActiveNavLinkOnScroll() {
+            if (!headerElement) return;
+            const headerHeight = headerElement.offsetHeight;
+            let currentVisibleMainSection = '';
+
+            mainContentSectionIds.forEach(id => {
+                const sectionElement = document.getElementById(id);
+                if (sectionElement && sectionElement.style.display !== 'none') { 
+                    const sectionTop = sectionElement.offsetTop - headerHeight - 20;
+                    const sectionBottom = sectionTop + sectionElement.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                        currentVisibleMainSection = id;
+                    }
+                }
+            });
+            
+            if (!currentVisibleMainSection && mainContentSectionIds.includes('contacto')) {
+                 const contactSection = document.getElementById('contacto');
+                 if (contactSection && contactSection.style.display !== 'none') {
+                    const scrollBottom = document.documentElement.scrollHeight - window.innerHeight;
+                    if (window.scrollY >= scrollBottom - 50) { 
+                        currentVisibleMainSection = 'contacto';
+                    }
+                 }
+            }
+
+            const inicioSection = document.getElementById('inicio');
+            if (!currentVisibleMainSection && inicioSection && inicioSection.style.display !== 'none' && window.scrollY < (inicioSection.offsetTop - headerHeight -20 + inicioSection.offsetHeight)) {
+                 currentVisibleMainSection = 'inicio';
+            }
+
+            if (currentVisibleMainSection) {
+                updateActiveLink(currentVisibleMainSection);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const userLang = navigator.language || navigator.userLanguage; 
             const primaryLang = userLang.split('-')[0]; 
-            if (primaryLang === "en") {
-                setLanguage("en");
-            } else {
-                setLanguage("es"); 
-            }
-            setTimeout(updateActiveNavLinkOnScroll, 150); 
+            setLanguage(primaryLang === "en" ? "en" : "es");
+            
+            handleNavigation(); 
+            
+            setTimeout(updateActiveNavLinkOnScroll, 200); 
+
             window.addEventListener('scroll', updateActiveNavLinkOnScroll);
+            window.addEventListener('hashchange', handleNavigation);
             
             const contactForm = document.getElementById('contact-form');
             const formStatusMessage = document.getElementById('form-status-message');
@@ -315,27 +596,16 @@
                     let isValid = true;
                     let firstInvalidField = null;
 
-                    if (!nameInput.value.trim()) {
-                        isValid = false;
-                        if (!firstInvalidField) firstInvalidField = nameInput;
-                    }
-                    if (!emailInput.value.trim() || !emailInput.checkValidity()) {
-                        isValid = false;
-                        if (!firstInvalidField) firstInvalidField = emailInput;
-                    }
-                    if (!messageInput.value.trim()) {
-                        isValid = false;
-                        if (!firstInvalidField) firstInvalidField = messageInput;
-                    }
+                    if (!nameInput.value.trim()) { isValid = false; if (!firstInvalidField) firstInvalidField = nameInput; }
+                    if (!emailInput.value.trim() || !emailInput.checkValidity()) { isValid = false; if (!firstInvalidField) firstInvalidField = emailInput; }
+                    if (!messageInput.value.trim()) { isValid = false; if (!firstInvalidField) firstInvalidField = messageInput; }
 
                     if (!isValid) {
                         const currentLang = document.documentElement.lang || 'es';
                         const errorMessage = translations[currentLang]?.form_submit_error || "Por favor, completa todos los campos requeridos.";
                         formStatusMessage.textContent = errorMessage;
                         formStatusMessage.className = 'mt-4 text-center text-red-400';
-                        if (firstInvalidField) {
-                            firstInvalidField.focus();
-                        }
+                        if (firstInvalidField) { firstInvalidField.focus(); }
                         return; 
                     }
 
@@ -353,7 +623,6 @@
             }
         });
 
-        // --- Lógica de Traducción ---
         const translations = {
             "es": {
                 "page_title": "S.S.A. - Soluciones Sostenibles Automatizadas",
@@ -362,6 +631,9 @@
                 "nav_servicios": "Servicios",
                 "nav_sobre_nosotros": "Sobre Nosotros",
                 "nav_contacto": "Contacto",
+                "nav_privacidad_footer": "Política de Privacidad", 
+                "nav_terminos_footer": "Términos de Uso", 
+
                 "hero_title_prefix": "Impulsa tu Negocio con ", 
                 "hero_title_highlight": "Inteligencia Artificial Sostenible",
                 "hero_subtitle": "En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.",
@@ -397,17 +669,109 @@
                 "form_submit_success": "¡Gracias! Tu mensaje ha sido enviado.",
                 "form_submit_error": "Por favor, completa todos los campos requeridos.",
                 "footer_copyright": "&copy; 2025 S.S.A. Todos los derechos reservados.",
-                "footer_privacy": "Política de Privacidad",
-                "footer_terms": "Términos de Servicio",
-                "alt_antonio_banderas": "Foto de Antonio Banderas"
+                "alt_antonio_banderas": "Foto de Antonio Banderas",
+
+                "privacy_title": "Política de Privacidad",
+                "privacy_last_updated": "Última actualización: 24 de mayo de 2025",
+                "legal_disclaimer_intro": "<strong>Importante:</strong> El siguiente texto es un modelo genérico y no constituye asesoramiento legal. Debes adaptar este contenido a las especificidades de tu negocio y consultar con un profesional legal para asegurar el cumplimiento de todas las leyes y regulaciones aplicables, incluyendo el RGPD.",
+                "privacy_p1": "S.S.A. (\"nosotros\", \"nuestro/a\"), con domicilio en [Tu Dirección Completa, Róterdam, Países Bajos], y correo electrónico de contacto [Tu Email de Contacto para Privacidad], se compromete a proteger y respetar tu privacidad de acuerdo con el Reglamento General de Protección de Datos (RGPD) (UE) 2016/679 y otras leyes de protección de datos aplicables. Esta Política de Privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos tus datos personales cuando utilizas nuestro sitio web [Indicar URL del sitio web aquí, por ejemplo, www.ssa-soluciones.com] (el \"Sitio Web\") y nuestros servicios.",
+                "privacy_h_data_controller": "1. Responsable del Tratamiento de Datos",
+                "privacy_p_data_controller": "El responsable del tratamiento de tus datos personales es S.S.A., [Tu Nombre o Nombre de la Empresa], [Tu Número de Identificación Fiscal/Empresa si aplica], con domicilio en [Tu Dirección Completa, Róterdam, Países Bajos]. Puedes contactarnos en [Tu Email de Contacto para Privacidad].",
+                "privacy_h_info_collect": "2. Qué Datos Personales Recopilamos y Por Qué",
+                "privacy_p_info_collect_intro": "Recopilamos diferentes tipos de datos personales para diversos fines con el fin de proporcionarte y mejorar nuestros Servicios.",
+                "privacy_strong_personal_data": "Datos Proporcionados Directamente:",
+                "privacy_p_personal_data": "Cuando utilizas nuestro formulario de contacto o solicitas nuestros servicios, podemos pedirte que nos proporciones cierta información de identificación personal que puede ser utilizada para contactarte o identificarte (\"Datos Personales\"). Esto puede incluir, entre otros: nombre y apellidos, dirección de correo electrónico, número de teléfono, nombre de la empresa y cualquier otra información que decidas proporcionarnos en tu mensaje.",
+                "privacy_p_purpose_personal_data": "La base legal para el tratamiento de estos datos es tu consentimiento (Art. 6.1.a RGPD) al enviarnos el formulario, y la necesidad de procesar tu solicitud para la posible ejecución de un contrato o medidas precontractuales (Art. 6.1.b RGPD).",
+                "privacy_strong_usage_data": "Datos de Uso y Cookies:",
+                "privacy_p_usage_data": "También podemos recopilar información sobre cómo se accede y utiliza el Sitio Web (\"Datos de Uso\"). Estos Datos de Uso pueden incluir información como la dirección de Protocolo de Internet de tu ordenador (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las páginas de nuestro Sitio Web que visitas, la hora y fecha de tu visita, el tiempo dedicado a esas páginas, identificadores únicos de dispositivos y otros datos de diagnóstico.",
+                "privacy_p_cookies": "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro Sitio Web y mantener cierta información. Las cookies son archivos con una pequeña cantidad de datos que pueden incluir un identificador único anónimo. Puedes indicar a tu navegador que rechace todas las cookies o que indique cuándo se envía una cookie. Sin embargo, si no aceptas las cookies, es posible que no puedas utilizar algunas partes de nuestro Sitio Web. La base legal para el uso de cookies técnicas es nuestro interés legítimo en asegurar el correcto funcionamiento del sitio (Art. 6.1.f RGPD). Para otras cookies (analíticas, de marketing), solicitaremos tu consentimiento previo (Art. 6.1.a RGPD).",
+                "privacy_h_use_info": "3. Cómo Utilizamos Tus Datos",
+                "privacy_p_use_info": "S.S.A. utiliza los datos recopilados para diversos fines:",
+                "privacy_li_use_1": "Para proporcionar y mantener nuestro Sitio Web y Servicios.",
+                "privacy_li_use_2": "Para notificarte sobre cambios en nuestros Servicios.",
+                "privacy_li_use_3": "Para permitirte participar en funciones interactivas de nuestro Servicio cuando elijas hacerlo.",
+                "privacy_li_use_4": "Para proporcionar atención y soporte al cliente.",
+                "privacy_li_use_5": "Para recopilar análisis o información valiosa para que podamos mejorar nuestro Sitio Web y Servicios.",
+                "privacy_li_use_6": "Para monitorear el uso de nuestro Sitio Web.",
+                "privacy_li_use_7": "Para detectar, prevenir y abordar problemas técnicos.",
+                "privacy_li_use_8": "Para cumplir con nuestras obligaciones legales.",
+                "privacy_h_data_retention": "4. Conservación de Datos",
+                "privacy_p_data_retention": "Conservaremos tus Datos Personales solo durante el tiempo que sea necesario para los fines establecidos en esta Política de Privacidad. Conservaremos y utilizaremos tus Datos Personales en la medida necesaria para cumplir con nuestras obligaciones legales (por ejemplo, si estamos obligados a conservar tus datos para cumplir con las leyes aplicables), resolver disputas y hacer cumplir nuestros acuerdos y políticas legales.",
+                "privacy_h_data_transfer": "5. Transferencia de Datos",
+                "privacy_p_data_transfer": "Tu información, incluidos los Datos Personales, puede ser transferida a —y mantenida en— ordenadores ubicados fuera de tu estado, provincia, país u otra jurisdicción gubernamental donde las leyes de protección de datos pueden diferir de las de tu jurisdicción. Si te encuentras fuera de los Países Bajos y eliges proporcionarnos información, ten en cuenta que transferimos los datos, incluidos los Datos Personales, a los Países Bajos y los procesamos allí. Tu consentimiento a esta Política de Privacidad seguido de tu envío de dicha información representa tu acuerdo con esa transferencia. S.S.A. tomará todas las medidas razonablemente necesarias para garantizar que tus datos se traten de forma segura y de acuerdo con esta Política de Privacidad y no se realizará ninguna transferencia de tus Datos Personales a una organización o país a menos que existan controles adecuados, incluida la seguridad de tus datos y otra información personal.",
+                "privacy_h_your_rights_gdpr": "6. Tus Derechos de Protección de Datos Bajo el RGPD",
+                "privacy_p_your_rights_gdpr_intro": "Si eres residente del Espacio Económico Europeo (EEE), tienes ciertos derechos de protección de datos. S.S.A. tiene como objetivo tomar medidas razonables para permitirte corregir, modificar, eliminar o limitar el uso de tus Datos Personales.",
+                "privacy_p_your_rights_list_intro": "Si deseas ser informado sobre qué Datos Personales tenemos sobre ti y si quieres que se eliminen de nuestros sistemas, por favor contáctanos. En ciertas circunstancias, tienes los siguientes derechos de protección de datos:",
+                "privacy_li_right_access": "<strong>El derecho de acceso:</strong> Tienes derecho a solicitar copias de tus datos personales.",
+                "privacy_li_right_rectification": "<strong>El derecho de rectificación:</strong> Tienes derecho a solicitar que corrijamos cualquier información que consideres inexacta. También tienes derecho a solicitar que completemos la información que consideres incompleta.",
+                "privacy_li_right_erasure": "<strong>El derecho de supresión (\"derecho al olvido\"):</strong> Tienes derecho a solicitar que eliminemos tus datos personales, bajo ciertas condiciones.",
+                "privacy_li_right_restriction": "<strong>El derecho a la limitación del tratamiento:</strong> Tienes derecho a solicitar que restrinjamos el tratamiento de tus datos personales, bajo ciertas condiciones.",
+                "privacy_li_right_objection": "<strong>El derecho de oposición al tratamiento:</strong> Tienes derecho a oponerte a nuestro tratamiento de tus datos personales, bajo ciertas condiciones, especialmente cuando la base legal es nuestro interés legítimo.",
+                "privacy_li_right_portability": "<strong>El derecho a la portabilidad de los datos:</strong> Tienes derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones.",
+                "privacy_li_right_withdraw_consent": "<strong>El derecho a retirar el consentimiento:</strong> También tienes derecho a retirar tu consentimiento en cualquier momento cuando S.S.A. se basó en tu consentimiento para procesar tu información personal.",
+                "privacy_p_exercise_rights": "Para ejercer cualquiera de estos derechos, por favor contáctanos en [Tu Email de Contacto para Privacidad]. Responderemos a tu solicitud en el plazo de un mes. Ten en cuenta que podemos pedirte que verifiques tu identidad antes de responder a dichas solicitudes.",
+                "privacy_p_complaint_authority": "Tienes derecho a presentar una queja ante una Autoridad de Protección de Datos sobre nuestra recopilación y uso de tus Datos Personales. Para más información, por favor contacta a tu autoridad local de protección de datos en el Espacio Económico Europeo (EEE). En los Países Bajos, esta es la Autoriteit Persoonsgegevens.",
+                "privacy_h_security_info": "7. Seguridad de los Datos",
+                "privacy_p_security_info": "La seguridad de tus datos es importante para nosotros, pero recuerda que ningún método de transmisión por Internet o método de almacenamiento electrónico es 100% seguro. Si bien nos esforzamos por utilizar medios comercialmente aceptables para proteger tus Datos Personales, no podemos garantizar su seguridad absoluta.",
+                "privacy_h_service_providers": "8. Proveedores de Servicios",
+                "privacy_p_service_providers": "Podemos emplear a terceras empresas e individuos para facilitar nuestro Servicio (\"Proveedores de Servicios\"), para proporcionar el Servicio en nuestro nombre, para realizar servicios relacionados con el Servicio o para ayudarnos a analizar cómo se utiliza nuestro Servicio. Estos terceros tienen acceso a tus Datos Personales solo para realizar estas tareas en nuestro nombre y están obligados a no divulgarlos ni utilizarlos para ningún otro propósito.",
+                "privacy_h_links_other_sites": "9. Enlaces a Otros Sitios",
+                "privacy_p_links_other_sites": "Nuestro Servicio puede contener enlaces a otros sitios que no son operados por nosotros. Si haces clic en un enlace de un tercero, serás dirigido al sitio de ese tercero. Te recomendamos encarecidamente que revises la Política de Privacidad de cada sitio que visites. No tenemos control ni asumimos ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de los sitios o servicios de terceros.",
+                "privacy_h_policy_children": "10. Privacidad de los Niños",
+                "privacy_p_policy_children": "Nuestro Servicio no se dirige a nadie menor de 16 años (\"Niños\"). No recopilamos conscientemente información de identificación personal de nadie menor de 16 años. Si eres padre o tutor y sabes que tus Hijos nos han proporcionado Datos Personales, por favor contáctanos. Si nos damos cuenta de que hemos recopilado Datos Personales de niños sin verificación del consentimiento parental, tomamos medidas para eliminar esa información de nuestros servidores.",
+                "privacy_h_changes_policy": "11. Cambios a Esta Política de Privacidad",
+                "privacy_p_changes_policy": "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Te notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la fecha de \"última actualización\" en la parte superior de esta Política de Privacidad. Se te aconseja revisar esta Política de Privacidad periódicamente para cualquier cambio. Los cambios a esta Política de Privacidad son efectivos cuando se publican en esta página.",
+                "privacy_h_contact_us": "12. Contáctanos",
+                "privacy_p_contact_us": "Si tienes alguna pregunta sobre esta Política de Privacidad, por favor contáctanos: Por correo electrónico: [Tu Email de Contacto para Privacidad]. O a través de nuestra sección de <a href=\"#contacto\" class=\"text-yellow-400 hover:text-yellow-300\">Contacto</a>.",
+
+                "terms_title": "Términos y Condiciones de Uso",
+                "terms_last_updated": "Última actualización: 24 de mayo de 2025",
+                "legal_disclaimer_intro_terms": "<strong>Importante:</strong> El siguiente texto es un modelo genérico y no constituye asesoramiento legal. Debes adaptar este contenido a las especificidades de tu negocio y consultar con un profesional legal para asegurar el cumplimiento de todas las leyes y regulaciones aplicables.",
+                "terms_p1": "Estos Términos y Condiciones de Uso (\"Términos\") rigen tu acceso y uso del sitio web [Indicar URL del sitio web aquí, por ejemplo, www.ssa-soluciones.com] (el \"Sitio Web\") y todos los servicios relacionados ofrecidos por S.S.A. (\"nosotros\", \"nuestro/a\"). Al acceder o utilizar el Sitio Web, aceptas estar legalmente obligado por estos Términos. Si no estás de acuerdo con alguno de estos Términos, no utilices el Sitio Web.",
+                "terms_h_definitions": "1. Definiciones",
+                "terms_p_definitions": "<strong>\"Servicios\"</strong> se refiere a los servicios de consultoría y desarrollo de inteligencia artificial, automatización de procesos y chatbots ofrecidos por S.S.A. a través del Sitio Web o por otros medios.",
+                "terms_p_user": "<strong>\"Usuario\"</strong> o <strong>\"tú\"</strong> se refiere a cualquier persona que acceda o utilice el Sitio Web o los Servicios.",
+                "terms_h_use_website": "2. Uso del Sitio Web y los Servicios",
+                "terms_p_use_website_1": "<strong>Elegibilidad:</strong> Debes tener al menos 18 años y la capacidad legal para celebrar contratos vinculantes para utilizar nuestros Servicios. Si utilizas los Servicios en nombre de una organización, declaras y garantizas que tienes la autoridad para obligar a dicha organización a estos Términos.",
+                "terms_p_use_website_2": "<strong>Conducta Aceptable:</strong> Aceptas utilizar el Sitio Web y los Servicios únicamente para fines lícitos y de acuerdo con estos Términos. No utilizarás el Sitio Web: de ninguna manera que viole cualquier ley o regulación local, nacional o internacional aplicable; para transmitir, o procurar el envío de, cualquier material publicitario o promocional no solicitado o no autorizado o cualquier otra forma de solicitud similar (spam); para suplantar o intentar suplantar a la Empresa, un empleado de la Empresa, otro usuario o cualquier otra persona o entidad.",
+                "terms_h_services_consulting": "3. Servicios de Consultoría y Desarrollo",
+                "terms_p_services_description": "Los detalles específicos de los Servicios, incluyendo alcance, entregables, plazos y tarifas, se acordarán por separado en un acuerdo de servicios o propuesta por escrito entre tú y S.S.A.",
+                "terms_p_no_guarantee": "S.S.A. se esforzará por proporcionar Servicios de alta calidad. Sin embargo, no garantizamos ningún resultado específico o retorno de la inversión derivado del uso de nuestros Servicios, ya que los resultados pueden variar según numerosos factores fuera de nuestro control.",
+                "terms_h_intellectual_property": "4. Propiedad Intelectual",
+                "terms_p_intellectual_property_website": "El Sitio Web y todo su contenido, características y funcionalidad (incluyendo, pero no limitado a, toda la información, software, texto, pantallas, imágenes, video y audio, y el diseño, selección y disposición de los mismos) son propiedad de S.S.A., sus licenciantes u otros proveedores de dicho material y están protegidos por las leyes de derechos de autor, marcas registradas, patentes, secretos comerciales y otras leyes de propiedad intelectual o derechos de propiedad de los Países Bajos e internacionales.",
+                "terms_p_intellectual_property_services": "Salvo que se acuerde lo contrario por escrito en un acuerdo de servicios específico, cualquier propiedad intelectual desarrollada por S.S.A. durante la prestación de los Servicios (por ejemplo, código de software personalizado, algoritmos, diseños) seguirá siendo propiedad de S.S.A. o sus licenciantes. Se te concederá una licencia para utilizar dichos desarrollos según los términos del acuerdo de servicios.",
+                "terms_h_confidentiality": "5. Confidencialidad",
+                "terms_p_confidentiality": "Ambas partes pueden recibir información confidencial de la otra. Cada parte se compromete a no divulgar la información confidencial de la otra parte a terceros y a utilizarla únicamente para los fines de la prestación o recepción de los Servicios, a menos que la ley exija lo contrario o con el consentimiento previo por escrito de la parte divulgadora.",
+                "terms_h_limitation_liability": "6. Limitación de Responsabilidad",
+                "terms_p_limitation_liability": "En la máxima medida permitida por la ley aplicable, en ningún caso S.S.A., sus afiliados, directores, empleados, agentes, proveedores o licenciantes serán responsables por daños indirectos, punitivos, incidentales, especiales, consecuentes o ejemplares, incluyendo, sin limitación, daños por pérdida de beneficios, fondo de comercio, uso, datos u otras pérdidas intangibles, que surjan de o estén relacionados con el uso o la incapacidad de usar el Sitio Web o los Servicios.",
+                "terms_p_liability_cap": "En la máxima medida permitida por la ley aplicable, la responsabilidad total agregada de S.S.A. hacia ti por todas las reclamaciones que surjan de o estén relacionadas con el uso o la incapacidad de usar el Sitio Web o los Servicios o de otro modo bajo estos Términos, ya sea por contrato, agravio o de otro modo, se limitará a la cantidad que nos hayas pagado por los Servicios en los seis (6) meses anteriores a la reclamación que dio lugar a la responsabilidad, o cien euros (€100.00), lo que sea mayor.",
+                "terms_h_disclaimer_warranties": "7. Descargo de Garantías",
+                "terms_p_disclaimer_warranties": "El Sitio Web y los Servicios se proporcionan \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". S.S.A. renuncia expresamente a todas las garantías de cualquier tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, las garantías implícitas de comerciabilidad, idoneidad para un propósito particular y no infracción. No garantizamos que el Sitio Web o los Servicios serán ininterrumpidos, oportunos, seguros o libres de errores.",
+                "terms_h_indemnification": "8. Indemnización",
+                "terms_p_indemnification": "Aceptas defender, indemnizar y eximir de responsabilidad a S.S.A. y sus licenciatarios y licenciantes, y sus empleados, contratistas, agentes, funcionarios y directores, de y contra todas y cada una de las reclamaciones, daños, obligaciones, pérdidas, responsabilidades, costos o deudas, y gastos (incluyendo pero no limitado a los honorarios de abogados), resultantes de o que surjan de a) tu uso y acceso al Sitio Web o los Servicios, o b) un incumplimiento de estos Términos.",
+                "terms_h_termination": "9. Terminación",
+                "terms_p_termination": "Podemos terminar o suspender tu acceso a nuestro Sitio Web y Servicios inmediatamente, sin previo aviso ni responsabilidad, por cualquier motivo, incluyendo, entre otros, si incumples los Términos. Tras la terminación, tu derecho a utilizar el Sitio Web y los Servicios cesará inmediatamente.",
+                "terms_h_governing_law": "10. Ley Aplicable y Jurisdicción",
+                "terms_p_governing_law": "Estos Términos se regirán e interpretarán de acuerdo con las leyes de los Países Bajos, sin tener en cuenta sus disposiciones sobre conflicto de leyes. Aceptas someterte a la jurisdicción exclusiva de los tribunales ubicados en Róterdam, Países Bajos, para la resolución de cualquier disputa que surja de o esté relacionada con estos Términos o el Sitio Web o los Servicios.",
+                "terms_h_changes_terms": "11. Cambios a los Términos",
+                "terms_p_changes_terms": "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, intentaremos proporcionar al menos 30 días de aviso antes de que entren en vigor los nuevos términos, publicando los términos actualizados en el Sitio Web. Lo que constituye un cambio material se determinará a nuestra sola discreción. Tu uso continuado del Sitio Web o los Servicios después de que dichos cambios entren en vigor constituye tu aceptación de los nuevos Términos.",
+                "terms_h_severability": "12. Divisibilidad",
+                "terms_p_severability": "Si alguna disposición de estos Términos se considera inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor.",
+                "terms_h_entire_agreement": "13. Acuerdo Completo",
+                "terms_p_entire_agreement": "Estos Términos, junto con nuestra Política de Privacidad y cualquier otro aviso legal publicado por nosotros en el Sitio Web, constituirán el acuerdo completo entre tú y S.S.A. con respecto al Sitio Web y los Servicios, y sustituyen todos los acuerdos anteriores o contemporáneos, ya sean escritos u orales.",
+                "terms_h_contact_us": "14. Contáctanos",
+                "terms_p_contact_us": "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en: [Tu Email de Contacto para Términos] o a través de nuestra sección de <a href=\"#contacto\" class=\"text-yellow-400 hover:text-yellow-300\">Contacto</a>."
             },
-            "en": {
+            "en": { // English translations updated to reflect GDPR principles
                 "page_title": "S.S.A. - Sustainable Automated Solutions",
                 "company_name_short": "S.S.A.",
                 "nav_inicio": "Home",
                 "nav_servicios": "Services",
                 "nav_sobre_nosotros": "About Us",
                 "nav_contacto": "Contact",
+                "nav_privacidad_footer": "Privacy Policy", 
+                "nav_terminos_footer": "Terms of Use",   
+
                 "hero_title_prefix": "Boost Your Business with ", 
                 "hero_title_highlight": "Sustainable Artificial Intelligence",
                 "hero_subtitle": "At S.S.A., we are your AI agency dedicated to transforming processes, creating conversational experiences, and developing custom solutions for your company's efficiency and sustainability.",
@@ -443,9 +807,98 @@
                 "form_submit_success": "Thank you! Your message has been sent.",
                 "form_submit_error": "Please fill in all required fields.",
                 "footer_copyright": "&copy; 2025 S.S.A. All rights reserved.",
-                "footer_privacy": "Privacy Policy",
-                "footer_terms": "Terms of Service",
-                "alt_antonio_banderas": "Photo of Antonio Banderas"
+                "alt_antonio_banderas": "Photo of Antonio Banderas",
+
+                "privacy_title": "Privacy Policy",
+                "privacy_last_updated": "Last updated: May 24, 2025",
+                "legal_disclaimer_intro": "<strong>Important:</strong> The following text is a generic template and does not constitute legal advice. You must adapt this content to the specifics of your business and consult with a legal professional to ensure compliance with all applicable laws and regulations, including GDPR.",
+                "privacy_p1": "S.S.A. (\"us\", \"we\", or \"our\"), located at [Your Full Address, Rotterdam, The Netherlands], and contact email [Your Privacy Contact Email], is committed to protecting and respecting your privacy in accordance with the General Data Protection Regulation (GDPR) (EU) 2016/679 and other applicable data protection laws. This Privacy Policy describes how we collect, use, store, and protect your personal data when you use our website [Indicate Website URL here, e.g., www.ssa-solutions.com] (the \"Website\") and our services.",
+                "privacy_h_data_controller": "1. Data Controller",
+                "privacy_p_data_controller": "The data controller for your personal data is S.S.A., [Your Name or Company Name], [Your Tax ID/Company Number if applicable], with its registered office at [Your Full Address, Rotterdam, The Netherlands]. You can contact us at [Your Privacy Contact Email].",
+                "privacy_h_info_collect": "2. What Personal Data We Collect and Why",
+                "privacy_p_info_collect_intro": "We collect different types of personal data for various purposes to provide and improve our Services to you.",
+                "privacy_strong_personal_data": "Data Provided Directly by You:",
+                "privacy_p_personal_data": "When you use our contact form or request our services, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (\"Personal Data\"). This may include, but is not limited to: first name and last name, email address, phone number, company name, and any other information you choose to provide in your message.",
+                "privacy_p_purpose_personal_data": "The legal basis for processing this data is your consent (Art. 6.1.a GDPR) when you submit the form, and the necessity to process your request for the potential performance of a contract or pre-contractual measures (Art. 6.1.b GDPR).",
+                "privacy_strong_usage_data": "Usage Data and Cookies:",
+                "privacy_p_usage_data": "We may also collect information on how the Website is accessed and used (\"Usage Data\"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Website that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.",
+                "privacy_p_cookies": "We use cookies and similar tracking technologies to track the activity on our Website and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Website. The legal basis for the use of technical cookies is our legitimate interest in ensuring the proper functioning of the site (Art. 6.1.f GDPR). For other cookies (analytics, marketing), we will request your prior consent (Art. 6.1.a GDPR).",
+                "privacy_h_use_info": "3. How We Use Your Data",
+                "privacy_p_use_info": "S.S.A. uses the collected data for various purposes:",
+                "privacy_li_use_1": "To provide and maintain our Website and Services.",
+                "privacy_li_use_2": "To notify you about changes to our Services.",
+                "privacy_li_use_3": "To allow you to participate in interactive features of our Service when you choose to do so.",
+                "privacy_li_use_4": "To provide customer care and support.",
+                "privacy_li_use_5": "To gather analysis or valuable information so that we can improve our Website and Services.",
+                "privacy_li_use_6": "To monitor the usage of our Website.",
+                "privacy_li_use_7": "To detect, prevent and address technical issues.",
+                "privacy_li_use_8": "To comply with our legal obligations.",
+                "privacy_h_data_retention": "4. Data Retention",
+                "privacy_p_data_retention": "We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.",
+                "privacy_h_data_transfer": "5. Data Transfer",
+                "privacy_p_data_transfer": "Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those from your jurisdiction. If you are located outside The Netherlands and choose to provide information to us, please note that we transfer the data, including Personal Data, to The Netherlands and process it there. Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer. S.S.A. will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.",
+                "privacy_h_your_rights_gdpr": "6. Your Data Protection Rights Under GDPR",
+                "privacy_p_your_rights_gdpr_intro": "If you are a resident of the European Economic Area (EEA), you have certain data protection rights. S.S.A. aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.",
+                "privacy_p_your_rights_list_intro": "If you wish to be informed about what Personal Data we hold about you and if you want it to be removed from our systems, please contact us. In certain circumstances, you have the following data protection rights:",
+                "privacy_li_right_access": "<strong>The right to access:</strong> You have the right to request copies of your personal data.",
+                "privacy_li_right_rectification": "<strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete information you believe is incomplete.",
+                "privacy_li_right_erasure": "<strong>The right to erasure ('right to be forgotten'):</strong> You have the right to request that we erase your personal data, under certain conditions.",
+                "privacy_li_right_restriction": "<strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal data, under certain conditions.",
+                "privacy_li_right_objection": "<strong>The right to object to processing:</strong> You have the right to object to our processing of your personal data, under certain conditions, especially where the legal basis is our legitimate interest.",
+                "privacy_li_right_portability": "<strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.",
+                "privacy_li_right_withdraw_consent": "<strong>The right to withdraw consent:</strong> You also have the right to withdraw your consent at any time where S.S.A. relied on your consent to process your personal information.",
+                "privacy_p_exercise_rights": "To exercise any of these rights, please contact us at [Your Privacy Contact Email]. We will respond to your request within one month. Please note that we may ask you to verify your identity before responding to such requests.",
+                "privacy_p_complaint_authority": "You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA). In The Netherlands, this is the Autoriteit Persoonsgegevens.",
+                "privacy_h_security_info": "7. Data Security",
+                "privacy_p_security_info": "The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.",
+                "privacy_h_service_providers": "8. Service Providers",
+                "privacy_p_service_providers": "We may employ third-party companies and individuals to facilitate our Service (\"Service Providers\"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used. These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.",
+                "privacy_h_links_other_sites": "9. Links to Other Sites",
+                "privacy_p_links_other_sites": "Our Service may contain links to other sites that are not operated by us. If you click a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies or practices of any third-party sites or services.",
+                "privacy_h_policy_children": "10. Children's Privacy",
+                "privacy_p_policy_children": "Our Service does not address anyone under the age of 16 (\"Children\"). We do not knowingly collect personally identifiable information from anyone under the age of 16. If you are a parent or guardian and you are aware that your Children have provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.",
+                "privacy_h_changes_policy": "11. Changes to This Privacy Policy",
+                "privacy_p_changes_policy": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"last updated\" date at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.",
+                "privacy_h_contact_us": "12. Contact Us",
+                "privacy_p_contact_us": "If you have any questions about this Privacy Policy, please contact us: By email: [Your Privacy Contact Email]. Or through our <a href=\"#contacto\" class=\"text-yellow-400 hover:text-yellow-300\">Contact</a> section.",
+
+                "terms_title": "Terms and Conditions of Use",
+                "terms_last_updated": "Last updated: May 24, 2025",
+                "legal_disclaimer_intro_terms": "<strong>Important:</strong> The following text is a generic template and does not constitute legal advice. You must adapt this content to the specifics of your business and consult with a legal professional to ensure compliance with all applicable laws and regulations.",
+                "terms_p1": "These Terms and Conditions of Use (\"Terms\") govern your access to and use of the website [Indicate Website URL here, e.g., www.ssa-solutions.com] (the \"Website\") and all related services offered by S.S.A. (\"us\", \"we\", or \"our\"). By accessing or using the Website, you agree to be legally bound by these Terms. If you do not agree to any of these Terms, do not use the Website.",
+                "terms_h_definitions": "1. Definitions",
+                "terms_p_definitions": "<strong>\"Services\"</strong> refers to the artificial intelligence consulting and development, process automation, and chatbot services offered by S.S.A. through the Website or other means.",
+                "terms_p_user": "<strong>\"User\"</strong> or <strong>\"you\"</strong> refers to any individual accessing or using the Website or Services.",
+                "terms_h_use_website": "2. Use of the Website and Services",
+                "terms_p_use_website_1": "<strong>Eligibility:</strong> You must be at least 18 years old and have the legal capacity to enter into binding contracts to use our Services. If you use the Services on behalf of an organization, you represent and warrant that you have the authority to bind such organization to these Terms.",
+                "terms_p_use_website_2": "<strong>Acceptable Conduct:</strong> You agree to use the Website and Services only for lawful purposes and in accordance with these Terms. You will not use the Website: in any way that violates any applicable local, national, or international law or regulation; to transmit, or procure the sending of, any unsolicited or unauthorized advertising or promotional material or any other form of similar solicitation (spam); to impersonate or attempt to impersonate the Company, a Company employee, another user, or any other person or entity.",
+                "terms_h_services_consulting": "3. Consulting and Development Services",
+                "terms_p_services_description": "Specific details of the Services, including scope, deliverables, timelines, and fees, will be agreed upon separately in a written service agreement or proposal between you and S.S.A.",
+                "terms_p_no_guarantee": "S.S.A. will endeavor to provide high-quality Services. However, we do not guarantee any specific results or return on investment from the use of our Services, as outcomes can vary based on numerous factors beyond our control.",
+                "terms_h_intellectual_property": "4. Intellectual Property",
+                "terms_p_intellectual_property_website": "The Website and its entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by S.S.A., its licensors, or other providers of such material and are protected by Netherlands and international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.",
+                "terms_p_intellectual_property_services": "Unless otherwise agreed in writing in a specific service agreement, any intellectual property developed by S.S.A. during the provision of Services (e.g., custom software code, algorithms, designs) shall remain the property of S.S.A. or its licensors. You will be granted a license to use such developments as per the terms of the service agreement.",
+                "terms_h_confidentiality": "5. Confidentiality",
+                "terms_p_confidentiality": "Both parties may receive confidential information from the other. Each party agrees not to disclose the other party's confidential information to third parties and to use it solely for the purposes of providing or receiving the Services, unless otherwise required by law or with the prior written consent of the disclosing party.",
+                "terms_h_limitation_liability": "6. Limitation of Liability",
+                "terms_p_limitation_liability": "To the maximum extent permitted by applicable law, in no event shall S.S.A., its affiliates, directors, employees, agents, suppliers, or licensors be liable for any indirect, punitive, incidental, special, consequential, or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data, or other intangible losses, arising out of or relating to the use of, or inability to use, the Website or Services.",
+                "terms_p_liability_cap": "To the maximum extent permitted by applicable law, S.S.A.'s aggregate liability to you for all claims arising out of or relating to the use of or inability to use the Website or Services or otherwise under these Terms, whether in contract, tort, or otherwise, shall be limited to the amount you paid to us for the Services in the six (6) months prior to the claim giving rise to liability, or one hundred Euros (€100.00), whichever is greater.",
+                "terms_h_disclaimer_warranties": "7. Disclaimer of Warranties",
+                "terms_p_disclaimer_warranties": "The Website and Services are provided on an \"AS IS\" and \"AS AVAILABLE\" basis. S.S.A. expressly disclaims all warranties of any kind, whether express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We make no warranty that the Website or Services will be uninterrupted, timely, secure, or error-free.",
+                "terms_h_indemnification": "8. Indemnification",
+                "terms_p_indemnification": "You agree to defend, indemnify and hold harmless S.S.A. and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of a) your use and access of the Website or Services, or b) a breach of these Terms.",
+                "terms_h_termination": "9. Termination",
+                "terms_p_termination": "We may terminate or suspend your access to our Website and Services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. Upon termination, your right to use the Website and Services will immediately cease.",
+                "terms_h_governing_law": "10. Governing Law and Jurisdiction",
+                "terms_p_governing_law": "These Terms shall be governed and construed in accordance with the laws of The Netherlands, without regard to its conflict of law provisions. You agree to submit to the exclusive jurisdiction of the courts located in Rotterdam, The Netherlands, for the resolution of any disputes arising out of or relating to these Terms or the Website or Services.",
+                "terms_h_changes_terms": "11. Changes to Terms",
+                "terms_p_changes_terms": "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect by posting the updated terms on the Website. What constitutes a material change will be determined at our sole discretion. Your continued use of the Website or Services after any such changes become effective constitutes your acceptance of the new Terms.",
+                "terms_h_severability": "12. Severability",
+                "terms_p_severability": "If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.",
+                "terms_h_entire_agreement": "13. Entire Agreement",
+                "terms_p_entire_agreement": "These Terms, together with our Privacy Policy and any other legal notices published by us on the Website, shall constitute the entire agreement between you and S.S.A. concerning the Website and Services, and supersede all prior or contemporaneous agreements, whether written or oral.",
+                "terms_h_contact_us": "14. Contact Us",
+                "terms_p_contact_us": "If you have any questions about these Terms, please contact us at: [Your Contact Email for Terms] or through our <a href=\"#contacto\" class=\"text-yellow-400 hover:text-yellow-300\">Contact</a> section."
             }
         };
 
@@ -459,33 +912,33 @@
 
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) { 
                     element.innerHTML = translations[lang][key]; 
                 } else {
-                    if (translations['es'][key]) {
+                    if (translations['es'] && translations['es'][key]) { 
                          element.innerHTML = translations['es'][key];
                     } else {
-                        console.warn(`Translation key "${key}" not found for language "${lang}" or fallback "es".`);
+                        // console.warn(`Translation key "${key}" not found for lang "${lang}" or fallback "es".`);
                     }
                 }
             });
 
             document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
                 const key = element.getAttribute('data-translate-placeholder');
-                 if (translations[lang][key]) {
+                 if (translations[lang] && translations[lang][key]) {
                     element.placeholder = translations[lang][key];
                 } else {
-                     if (translations['es'][key]) {
+                     if (translations['es'] && translations['es'][key]) {
                         element.placeholder = translations['es'][key];
                     } else {
-                        console.warn(`Placeholder translation key "${key}" not found for language "${lang}" or fallback "es".`);
+                        // console.warn(`Placeholder translation key "${key}" not found for lang "${lang}" or fallback "es".`);
                     }
                 }
             });
             
             const profileImage = document.querySelector('img[alt="Foto de Antonio Banderas"], img[alt="Photo of Antonio Banderas"]');
             if (profileImage) {
-                profileImage.alt = translations[lang].alt_antonio_banderas || translations['es'].alt_antonio_banderas;
+                profileImage.alt = (translations[lang] && translations[lang].alt_antonio_banderas) || (translations['es'] && translations['es'].alt_antonio_banderas) || "Team member photo";
             }
         }
     </script>
