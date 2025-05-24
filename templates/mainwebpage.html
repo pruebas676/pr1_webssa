@@ -43,17 +43,10 @@
             color: #facc15 !important; /* Amarillo S.S.A. */
             font-weight: 600 !important;
         }
-        /* Las secciones ahora son visibles por defecto, la animación se puede mantener si se desea al cargar */
+        /* Las secciones ahora son visibles por defecto */
         main > section {
             display: block; /* Aseguramos que sean visibles */
-            /* Puedes mantener una animación de entrada si lo deseas, pero se aplicará al cargar la página */
-            /* animation: fadeIn 0.5s ease-in-out; */
         }
-
-        /* @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        } */
     </style>
 </head>
 <body class="text-gray-100">
@@ -167,7 +160,7 @@
             <div class="container mx-auto">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-12 md:mb-16" data-translate="contact_title">Hablemos de tu Próximo Proyecto de <span class="text-yellow-400">IA</span></h2>
                 <div class="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
-                    <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
+                    <div class="w-full md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
                         <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_info_title">Información de Contacto</h3>
                         <div class="space-y-4 text-base sm:text-lg text-gray-300">
                             <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📧</span> antonio.banderas.s.s.a@gmail.com</p>
@@ -177,7 +170,7 @@
                         <p class="text-gray-400 mt-6 sm:mt-8 text-sm sm:text-base" data-translate="contact_ready_text">Estamos listos para transformar tu negocio con soluciones de IA.</p>
                     </div>
 
-                    <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
+                    <div class="w-full md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
                         <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_form_title">Envíanos un Mensaje</h3>
                         <form id="contact-form" class="space-y-5 sm:space-y-6">
                             <div>
