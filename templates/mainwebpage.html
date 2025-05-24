@@ -35,6 +35,21 @@
         input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
             color: #a0aec0;
         }
+        /* Estilo para el enlace de navegación activo */
+        .nav-active {
+            color: #facc15 !important; /* Amarillo S.S.A. */
+            font-weight: 600 !important;
+        }
+         /* Ocultar secciones por defecto, JS las mostrará */
+        main > section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out; /* Animación de entrada */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="text-gray-100">
@@ -46,145 +61,147 @@
                     <polygon points="50,10 90,90 10,90" stroke="#facc15" stroke-width="8" fill="none"/>
                     <circle cx="50" cy="60" r="18" fill="#facc15"/>
                 </svg>
-                <a href="#" class="text-2xl md:text-3xl font-bold text-yellow-400" data-translate="company_name_short">S.S.A.</a>
+                <a href="#!inicio" class="text-2xl md:text-3xl font-bold text-yellow-400" data-translate="company_name_short">S.S.A.</a>
             </div>
-            <div class="hidden md:flex space-x-6 lg:space-x-8">
-                <a href="#inicio" class="text-base lg:text-lg hover:text-yellow-400 transition duration-300" data-translate="nav_inicio">Inicio</a>
-                <a href="#servicios" class="text-base lg:text-lg hover:text-yellow-400 transition duration-300" data-translate="nav_servicios">Servicios</a>
-                <a href="#sobre-nosotros" class="text-base lg:text-lg hover:text-yellow-400 transition duration-300" data-translate="nav_sobre_nosotros">Sobre Nosotros</a>
-                <a href="#contacto" class="text-base lg:text-lg hover:text-yellow-400 transition duration-300" data-translate="nav_contacto">Contacto</a>
+            <div id="desktop-nav-links" class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#!inicio" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_inicio">Inicio</a>
+                <a href="#!servicios" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_servicios">Servicios</a>
+                <a href="#!sobre-nosotros" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_sobre_nosotros">Sobre Nosotros</a>
+                <a href="#!contacto" class="text-base lg:text-lg text-gray-100 hover:text-yellow-400 transition duration-300" data-translate="nav_contacto">Contacto</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-yellow-400 text-3xl">
                 ☰
             </button>
         </nav>
         <div id="mobile-menu" class="mobile-menu md:hidden bg-gray-800 mt-3 rounded-md shadow-lg">
-            <a href="#inicio" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_inicio">Inicio</a>
-            <a href="#servicios" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_servicios">Servicios</a>
-            <a href="#sobre-nosotros" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_sobre_nosotros">Sobre Nosotros</a>
-            <a href="#contacto" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_contacto">Contacto</a>
+            <a href="#!inicio" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_inicio">Inicio</a>
+            <a href="#!servicios" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_servicios">Servicios</a>
+            <a href="#!sobre-nosotros" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_sobre_nosotros">Sobre Nosotros</a>
+            <a href="#!contacto" class="block text-lg px-4 py-3 text-white hover:bg-gray-700 hover:text-yellow-400 transition duration-300" data-translate="nav_contacto">Contacto</a>
         </div>
     </header>
 
-    <section id="inicio" class="relative bg-gradient-futuristic text-center py-20 md:py-28 lg:py-32 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-5">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="#3b82f6" stroke-width="0.3"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-        </div>
-        <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6" data-translate="hero_title_1">
-                Impulsa tu Negocio con <span class="text-yellow-400" data-translate="hero_title_highlight">Inteligencia Artificial Sostenible</span>
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto" data-translate="hero_subtitle">
-                En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.
-            </p>
-            <a href="#contacto" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-base sm:text-lg" data-translate="hero_cta">
-                Solicita una Consulta Gratuita
-            </a>
-        </div>
-    </section>
-
-    <section id="servicios" class="bg-gray-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-12 md:mb-16" data-translate="services_title">Nuestras Soluciones de <span class="text-yellow-400">Inteligencia Artificial</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-                <div class="bg-gray-800 rounded-lg p-6 md:p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
-                    <div class="text-yellow-400 text-4xl sm:text-5xl mb-5 sm:mb-6 text-center">⚙️</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 text-center" data-translate="service_1_title">Automatización de Procesos Repetitivos</h3>
-                    <p class="text-gray-300 text-center text-sm sm:text-base" data-translate="service_1_desc">
-                        Transformamos tareas manuales y repetitivas en flujos automatizados, liberando a tu equipo para focos estratégicos y reduciendo errores.
-                    </p>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-6 md:p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
-                    <div class="text-yellow-400 text-4xl sm:text-5xl mb-5 sm:mb-6 text-center">💬</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 text-center" data-translate="service_2_title">Generación de Chatbots y Asistentes Virtuales</h3>
-                    <p class="text-gray-300 text-center text-sm sm:text-base" data-translate="service_2_desc">
-                        Mejora la atención al cliente, automatiza respuestas y optimiza la interacción 24/7 con soluciones de chatbot avanzadas.
-                    </p>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-6 md:p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
-                    <div class="text-yellow-400 text-4xl sm:text-5xl mb-5 sm:mb-6 text-center">🧩</div>
-                    <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 text-center" data-translate="service_3_title">Desarrollo de IA a Medida</h3>
-                    <p class="text-gray-300 text-center text-sm sm:text-base" data-translate="service_3_desc">
-                        Desde análisis predictivo hasta visión por computadora, desarrollamos sistemas de IA adaptados exactamente a las necesidades y peticiones específicas de tu empresa.
-                    </p>
-                </div>
+    <main>
+        <section id="inicio" class="relative bg-gradient-futuristic text-center py-20 md:py-28 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-5">
+                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="#3b82f6" stroke-width="0.3"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
             </div>
-        </div>
-    </section>
-
-    <section id="sobre-nosotros" class="bg-gradient-futuristic py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-12">
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8" data-translate="about_title">S.S.A.: <span class="text-yellow-400" data-translate="about_title_highlight">Inteligencia Artificial con Propósito</span></h2>
-                <p class="text-base sm:text-lg text-gray-300 mb-5 sm:mb-6" data-translate="about_p1">
-                    En S.S.A., creemos en el poder transformador de la inteligencia artificial para crear soluciones que no solo optimicen tus operaciones, sino que también contribuyan a un futuro más sostenible. Somos un equipo de expertos apasionados por la innovación y comprometidos con la excelencia en cada proyecto.
+            <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6" data-translate="hero_title_1">
+                    Impulsa tu Negocio con <span class="text-yellow-400" data-translate="hero_title_highlight">Inteligencia Artificial Sostenible</span>
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto" data-translate="hero_subtitle">
+                    En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.
                 </p>
-                <p class="text-base sm:text-lg text-gray-300" data-translate="about_p2">
-                    Nuestra misión es empoderar a las empresas con tecnología de vanguardia, ofreciendo automatización inteligente y personalizada que impulse el crecimiento y la eficiencia.
-                </p>
+                <a href="#!contacto" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-base sm:text-lg" data-translate="hero_cta">
+                    Solicita una Consulta Gratuita
+                </a>
             </div>
-            <div class="md:w-1/2 flex flex-col items-center">
-                <div class="bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl text-center max-w-sm w-full">
-                    <img src="https://placehold.co/100x100/facc15/1f2937?text=AB" alt="Foto de Antonio Banderas" class="rounded-full mx-auto mb-5 sm:mb-6 border-4 border-yellow-400 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover">
-                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2" data-translate="team_member_name">Antonio Banderas</h3>
-                    <p class="text-lg sm:text-xl text-yellow-400 mb-3 sm:mb-4" data-translate="team_member_role">Director Comercial</p>
-                    <p class="text-gray-300 text-sm sm:text-base" data-translate="team_member_bio">
-                        Liderando la visión comercial de S.S.A., mi objetivo es conectar a las empresas con las soluciones de IA más innovadoras y sostenibles para sus desafíos únicos.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contacto" class="bg-gray-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-12 md:mb-16" data-translate="contact_title">Hablemos de tu Próximo Proyecto de <span class="text-yellow-400">IA</span></h2>
-            <div class="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
-                <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_info_title">Información de Contacto</h3>
-                    <div class="space-y-4 text-base sm:text-lg text-gray-300">
-                        <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📧</span> antonio.banderas.s.s.a@gmail.com</p>
-                        <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📞</span> (+31) 6 29426697</p>
-                        <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📍</span> <span data-translate="contact_location">Róterdam</span></p>
+        <section id="servicios" class="bg-gray-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-12 md:mb-16" data-translate="services_title">Nuestras Soluciones de <span class="text-yellow-400">Inteligencia Artificial</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                    <div class="bg-gray-800 rounded-lg p-6 md:p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-yellow-400 text-4xl sm:text-5xl mb-5 sm:mb-6 text-center">⚙️</div>
+                        <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 text-center" data-translate="service_1_title">Automatización de Procesos Repetitivos</h3>
+                        <p class="text-gray-300 text-center text-sm sm:text-base" data-translate="service_1_desc">
+                            Transformamos tareas manuales y repetitivas en flujos automatizados, liberando a tu equipo para focos estratégicos y reduciendo errores.
+                        </p>
                     </div>
-                    <p class="text-gray-400 mt-6 sm:mt-8 text-sm sm:text-base" data-translate="contact_ready_text">Estamos listos para transformar tu negocio con soluciones de IA.</p>
-                </div>
-
-                <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_form_title">Envíanos un Mensaje</h3>
-                    <form id="contact-form" class="space-y-5 sm:space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_name">Nombre:</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tu Nombre" data-translate-placeholder="form_name_placeholder">
-                        </div>
-                        <div>
-                            <label for="company" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_company">Empresa:</label>
-                            <input type="text" id="company" name="company" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de tu Empresa" data-translate-placeholder="form_company_placeholder">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_email">Correo Electrónico:</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="tu.correo@ejemplo.com" data-translate-placeholder="form_email_placeholder">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_message">Mensaje:</label>
-                            <textarea id="message" name="message" rows="4" sm:rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="Cuéntanos sobre tu proyecto..." data-translate-placeholder="form_message_placeholder"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-base sm:text-lg" data-translate="form_submit_button">
-                            Enviar Mensaje
-                        </button>
-                    </form>
-                    <div id="form-status-message" class="mt-4 text-center"></div>
+                    <div class="bg-gray-800 rounded-lg p-6 md:p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-yellow-400 text-4xl sm:text-5xl mb-5 sm:mb-6 text-center">💬</div>
+                        <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 text-center" data-translate="service_2_title">Generación de Chatbots y Asistentes Virtuales</h3>
+                        <p class="text-gray-300 text-center text-sm sm:text-base" data-translate="service_2_desc">
+                            Mejora la atención al cliente, automatiza respuestas y optimiza la interacción 24/7 con soluciones de chatbot avanzadas.
+                        </p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 md:p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="text-yellow-400 text-4xl sm:text-5xl mb-5 sm:mb-6 text-center">🧩</div>
+                        <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 text-center" data-translate="service_3_title">Desarrollo de IA a Medida</h3>
+                        <p class="text-gray-300 text-center text-sm sm:text-base" data-translate="service_3_desc">
+                            Desde análisis predictivo hasta visión por computadora, desarrollamos sistemas de IA adaptados exactamente a las necesidades y peticiones específicas de tu empresa.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="sobre-nosotros" class="bg-gradient-futuristic py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-12">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8" data-translate="about_title">S.S.A.: <span class="text-yellow-400" data-translate="about_title_highlight">Inteligencia Artificial con Propósito</span></h2>
+                    <p class="text-base sm:text-lg text-gray-300 mb-5 sm:mb-6" data-translate="about_p1">
+                        En S.S.A., creemos en el poder transformador de la inteligencia artificial para crear soluciones que no solo optimicen tus operaciones, sino que también contribuyan a un futuro más sostenible. Somos un equipo de expertos apasionados por la innovación y comprometidos con la excelencia en cada proyecto.
+                    </p>
+                    <p class="text-base sm:text-lg text-gray-300" data-translate="about_p2">
+                        Nuestra misión es empoderar a las empresas con tecnología de vanguardia, ofreciendo automatización inteligente y personalizada que impulse el crecimiento y la eficiencia.
+                    </p>
+                </div>
+                <div class="md:w-1/2 flex flex-col items-center">
+                    <div class="bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl text-center max-w-sm w-full">
+                        <img src="https://placehold.co/100x100/facc15/1f2937?text=AB" alt="Foto de Antonio Banderas" class="rounded-full mx-auto mb-5 sm:mb-6 border-4 border-yellow-400 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2" data-translate="team_member_name">Antonio Banderas</h3>
+                        <p class="text-lg sm:text-xl text-yellow-400 mb-3 sm:mb-4" data-translate="team_member_role">Director Comercial</p>
+                        <p class="text-gray-300 text-sm sm:text-base" data-translate="team_member_bio">
+                            Liderando la visión comercial de S.S.A., mi objetivo es conectar a las empresas con las soluciones de IA más innovadoras y sostenibles para sus desafíos únicos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="bg-gray-900 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-12 md:mb-16" data-translate="contact_title">Hablemos de tu Próximo Proyecto de <span class="text-yellow-400">IA</span></h2>
+                <div class="flex flex-col md:flex-row gap-10 md:gap-12 items-start">
+                    <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_info_title">Información de Contacto</h3>
+                        <div class="space-y-4 text-base sm:text-lg text-gray-300">
+                            <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📧</span> antonio.banderas.s.s.a@gmail.com</p>
+                            <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📞</span> (+31) 6 29426697</p>
+                            <p class="flex items-center"><span class="text-yellow-400 mr-3 text-xl">📍</span> <span data-translate="contact_location">Róterdam</span></p>
+                        </div>
+                        <p class="text-gray-400 mt-6 sm:mt-8 text-sm sm:text-base" data-translate="contact_ready_text">Estamos listos para transformar tu negocio con soluciones de IA.</p>
+                    </div>
+
+                    <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 sm:p-8 shadow-xl">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-white mb-6" data-translate="contact_form_title">Envíanos un Mensaje</h3>
+                        <form id="contact-form" class="space-y-5 sm:space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_name">Nombre:</label>
+                                <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tu Nombre" data-translate-placeholder="form_name_placeholder">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_company">Empresa:</label>
+                                <input type="text" id="company" name="company" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre de tu Empresa" data-translate-placeholder="form_company_placeholder">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="tu.correo@ejemplo.com" data-translate-placeholder="form_email_placeholder">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 text-sm font-bold mb-2" data-translate="form_message">Mensaje:</label>
+                                <textarea id="message" name="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 sm:py-3 sm:px-4 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" placeholder="Cuéntanos sobre tu proyecto..." data-translate-placeholder="form_message_placeholder"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 text-base sm:text-lg" data-translate="form_submit_button">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                        <div id="form-status-message" class="mt-4 text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-gray-950 py-8 md:py-10 px-4 text-center text-gray-400">
         <div class="container mx-auto">
@@ -207,45 +224,105 @@
         // Script para el menú móvil
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = mobileMenu.querySelectorAll('a');
+        const mobileNavLinks = mobileMenu.querySelectorAll('a'); // Guardamos los enlaces del menú móvil
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
-            // Cambiar ícono de hamburguesa a X y viceversa
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenuButton.innerHTML = '✕'; // Icono de cerrar
-            } else {
-                mobileMenuButton.innerHTML = '☰'; // Icono de hamburguesa
-            }
+            mobileMenuButton.innerHTML = mobileMenu.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Cerrar menú móvil al hacer clic en un enlace
-        navLinks.forEach(link => {
+        // Cerrar menú móvil al hacer clic en un enlace (ya no necesitamos smooth scroll aquí)
+        mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 mobileMenuButton.innerHTML = '☰';
+                // La navegación por hash se encargará del resto
             });
         });
         
-        // Smooth scrolling para la navegación
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Considerar la altura del header fijo
-                    const headerOffset = document.querySelector('header').offsetHeight;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+        // Lógica de "navegación" entre secciones (simulación multi-página)
+        const pageSections = document.querySelectorAll('main > section');
+        const desktopNavLinks = document.querySelectorAll('#desktop-nav-links a');
+        // mobileNavLinks ya está definido arriba
+
+        function updateActiveLink(targetPageId) {
+            const allNavLinks = [...desktopNavLinks, ...mobileNavLinks]; // Combinamos ambos conjuntos de enlaces
+            allNavLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                // Restablecer clases de hover que podrían haber sido eliminadas si estaba activo
+                if (Array.from(desktopNavLinks).includes(link)) { // Es un enlace de escritorio
+                    link.classList.add('text-gray-100', 'hover:text-yellow-400');
+                } else { // Es un enlace móvil
+                    link.classList.add('text-white', 'hover:bg-gray-700', 'hover:text-yellow-400');
+                }
+
+                if (link.getAttribute('href') === `#!${targetPageId}`) {
+                    link.classList.add('nav-active');
+                    // Quitar clases de hover si está activo para evitar conflicto de color
+                     link.classList.remove('hover:text-yellow-400', 'hover:bg-gray-700');
                 }
             });
+        }
+
+        function showPage(pageId) {
+            let effectivePageId = pageId;
+            const validPageIds = Array.from(pageSections).map(s => s.id);
+
+            // Si el pageId no es válido o no existe, por defecto a 'inicio'
+            if (!effectivePageId || !validPageIds.includes(effectivePageId)) {
+                effectivePageId = 'inicio';
+                // Actualizar el hash en la URL si es inválido o no existe, sin añadir al historial
+                if (window.location.hash !== `#!${effectivePageId}`) {
+                     history.replaceState(null, null, `#!${effectivePageId}`);
+                }
+            }
+
+            pageSections.forEach(section => {
+                section.style.display = section.id === effectivePageId ? 'block' : 'none';
+            });
+            
+            updateActiveLink(effectivePageId); // Actualizar el enlace activo en la navegación
+            window.scrollTo(0, 0); // Scroll al inicio de la nueva "página"
+        }
+
+        // Función para manejar la navegación basada en el hash de la URL
+        function handleNavigation() {
+            const hash = window.location.hash;
+            let pageId = 'inicio'; // Página por defecto
+
+            if (hash && hash.startsWith('#!')) {
+                pageId = hash.substring(2); // Obtener el ID de la página desde el hash (ej: de #!servicios a servicios)
+            } else if (hash && hash.startsWith('#') && hash.length > 1) {
+                // Para compatibilidad con enlaces antiguos tipo #contacto, redirigir a #!contacto
+                pageId = hash.substring(1);
+                history.replaceState(null, null, `#!${pageId}`); // Normalizar a #!
+            }
+             else {
+                // Si no hay hash, o es solo '#', establecer el hash por defecto a #!inicio
+                history.replaceState(null, null, `#!inicio`);
+            }
+            showPage(pageId);
+        }
+
+        // Event listener para cuando el hash de la URL cambia
+        window.addEventListener('hashchange', handleNavigation);
+
+        // Event listener para la carga inicial de la página
+        document.addEventListener('DOMContentLoaded', () => {
+            handleNavigation(); // Manejar la navegación inicial
+            
+            // La traducción se llama después de que la página correcta es mostrada
+            // y el idioma es detectado
+            const userLang = navigator.language || navigator.userLanguage; 
+            const primaryLang = userLang.split('-')[0]; 
+            
+            if (primaryLang === "en") {
+                setLanguage("en");
+            } else {
+                setLanguage("es"); 
+            }
         });
+
 
         // Simulación de envío de formulario y mensaje de estado
         const contactForm = document.getElementById('contact-form');
@@ -253,26 +330,22 @@
 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Aquí iría la lógica para enviar el formulario, por ejemplo, con fetch()
             console.log('Formulario enviado (simulado).');
             
-            // Mostrar mensaje de éxito (simulado)
             const currentLang = document.documentElement.lang || 'es';
             const successMessage = translations[currentLang]?.form_submit_success || "¡Gracias! Tu mensaje ha sido enviado.";
             formStatusMessage.textContent = successMessage;
             formStatusMessage.className = 'mt-4 text-center text-green-400';
 
+            this.reset(); 
 
-            this.reset(); // Limpia el formulario
-
-            // Ocultar mensaje después de unos segundos
             setTimeout(() => {
                 formStatusMessage.textContent = '';
                 formStatusMessage.className = 'mt-4 text-center';
             }, 5000);
         });
 
-        // Traducción básica
+        // Traducción básica (sin cambios aquí, ya estaba bien)
         const translations = {
             "es": {
                 "page_title": "S.S.A. - Soluciones Sostenibles Automatizadas",
@@ -369,17 +442,16 @@
         function setLanguage(lang) {
             if (!translations[lang]) {
                 console.warn(`Language ${lang} not supported. Defaulting to Spanish.`);
-                lang = 'es'; // Por defecto a español si el idioma no está
+                lang = 'es'; 
             }
-            document.documentElement.lang = lang; // Actualizar el atributo lang del HTML
+            document.documentElement.lang = lang; 
             document.title = translations[lang].page_title || translations['es'].page_title;
 
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang][key]) {
-                    element.innerHTML = translations[lang][key]; // Usar innerHTML para permitir spans dentro de títulos
+                    element.innerHTML = translations[lang][key]; 
                 } else {
-                    // Si no hay traducción para la clave específica, intentar con español como fallback
                     if (translations['es'][key]) {
                          element.innerHTML = translations['es'][key];
                     } else {
@@ -401,23 +473,14 @@
                 }
             });
             
-            // Traducir el atributo alt de la imagen
             const profileImage = document.querySelector('img[alt="Foto de Antonio Banderas"], img[alt="Photo of Antonio Banderas"]');
             if (profileImage) {
                 profileImage.alt = translations[lang].alt_antonio_banderas || translations['es'].alt_antonio_banderas;
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const userLang = navigator.language || navigator.userLanguage; // Detectar idioma del navegador
-            const primaryLang = userLang.split('-')[0]; // Obtener el código base del idioma (ej: "en" de "en-US")
-            
-            if (primaryLang === "en") {
-                setLanguage("en");
-            } else {
-                setLanguage("es"); // Por defecto a español para cualquier otro idioma
-            }
-        });
+        // No se necesita el DOMContentLoaded para setLanguage aquí, ya que se llama después de handleNavigation
+        // en el DOMContentLoaded principal.
 
     </script>
 </body>
