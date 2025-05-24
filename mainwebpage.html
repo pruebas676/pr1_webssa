@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.S.A. - Soluciones Sostenibles Automatizadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Fondo oscuro */
+        }
+        /* Estilos personalizados para el degradado y formas */
+        .bg-gradient-futuristic {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        }
+        .section-separator {
+            position: relative;
+            height: 80px; /* Altura de la separación */
+            background-color: #1a202c; /* Color del fondo de la sección anterior */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%); /* Forma de onda o diagonal */
+            margin-top: -40px; /* Superponer ligeramente */
+        }
+        .yellow-accent-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; /* Altura de la forma amarilla */
+            background-color: #facc15; /* Amarillo brillante */
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%); /* Forma diagonal */
+            z-index: -1;
+        }
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+            fill: #facc15; /* Color amarillo para el logo */
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <header class="bg-gradient-futuristic shadow-lg p-6 md:p-8">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,10 90,90 10,90" stroke="#facc15" stroke-width="5" fill="none"/>
+                    <circle cx="50" cy="60" r="20" fill="#facc15"/>
+                </svg>
+                <a href="#" class="text-3xl font-bold text-yellow-400">S.S.A.</a>
+            </div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#inicio" class="text-lg hover:text-yellow-400 transition duration-300">Inicio</a></li>
+                <li><a href="#servicios" class="text-lg hover:text-yellow-400 transition duration-300">Servicios</a></li>
+                <li><a href="#sobre-nosotros" class="text-lg hover:text-yellow-400 transition duration-300">Sobre Nosotros</a></li>
+                <li><a href="#contacto" class="text-lg hover:text-yellow-400 transition duration-300">Contacto</a></li>
+            </ul>
+            <button class="md:hidden text-yellow-400 text-2xl">☰</button>
+        </nav>
+    </header>
+
+    <section id="inicio" class="relative bg-gradient-futuristic text-center py-20 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="#3b82f6" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <div class="container mx-auto relative z-10 px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white mb-6">
+                Impulsa tu Negocio con <span class="text-yellow-400">Inteligencia Artificial Sostenible</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                En S.S.A., somos tu agencia de IA dedicada a transformar procesos, crear experiencias conversacionales y desarrollar soluciones a medida para la eficiencia y sostenibilidad de tu compañía.
+            </p>
+            <a href="#contacto" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Solicita una Consulta Gratuita
+            </a>
+        </div>
+    </section>
+
+    <section id="servicios" class="bg-gray-900 py-16 md:py-24 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16">Nuestras Soluciones de <span class="text-yellow-400">Inteligencia Artificial</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-gray-800 rounded-lg p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-5xl mb-6 text-center">⚙️</div> <h3 class="text-2xl font-semibold text-white mb-4 text-center">Automatización de Procesos Repetitivos</h3>
+                    <p class="text-gray-300 text-center">
+                        Transformamos tareas manuales y repetitivas en flujos automatizados, liberando a tu equipo para focos estratégicos y reduciendo errores.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 rounded-lg p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-5xl mb-6 text-center">💬</div> <h3 class="text-2xl font-semibold text-white mb-4 text-center">Generación de Chatbots y Asistentes Virtuales</h3>
+                    <p class="text-gray-300 text-center">
+                        Mejora la atención al cliente, automatiza respuestas y optimiza la interacción 24/7 con soluciones de chatbot avanzadas.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 rounded-lg p-8 shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+                    <div class="text-yellow-400 text-5xl mb-6 text-center">🧩</div> <h3 class="text-2xl font-semibold text-white mb-4 text-center">Desarrollo de IA a Medida</h3>
+                    <p class="text-gray-300 text-center">
+                        Desde análisis predictivo hasta visión por computadora, desarrollamos sistemas de IA adaptados exactamente a las necesidades y peticiones específicas de tu empresa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="bg-gradient-futuristic py-16 md:py-24 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">S.S.A.: <span class="text-yellow-400">Inteligencia Artificial con Propósito</span></h2>
+                <p class="text-lg text-gray-300 mb-6">
+                    En S.S.A., creemos en el poder transformador de la inteligencia artificial para crear soluciones que no solo optimicen tus operaciones, sino que también contribuyan a un futuro más sostenible. Somos un equipo de expertos apasionados por la innovación y comprometidos con la excelencia en cada proyecto.
+                </p>
+                <p class="text-lg text-gray-300">
+                    Nuestra misión es empoderar a las empresas con tecnología de vanguardia, ofreciendo automatización inteligente y personalizada que impulse el crecimiento y la eficiencia.
+                </p>
+            </div>
+            <div class="md:w-1/2 flex flex-col items-center">
+                <div class="bg-gray-800 rounded-lg p-8 shadow-xl text-center max-w-sm w-full">
+                    <img src="https://placehold.co/120x120/facc15/1f2937?text=AB" alt="Antonio Banderas" class="rounded-full mx-auto mb-6 border-4 border-yellow-400">
+                    <h3 class="text-3xl font-bold text-white mb-2">Antonio Banderas</h3>
+                    <p class="text-xl text-yellow-400 mb-4">Director Comercial</p>
+                    <p class="text-gray-300">
+                        Liderando la visión comercial de S.S.A., mi objetivo es conectar a las empresas con las soluciones de IA más innovadoras y sostenibles para sus desafíos únicos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-gray-900 py-16 md:py-24 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16">Hablemos de tu Próximo Proyecto de <span class="text-yellow-400">IA</span></h2>
+
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="md:w-1/2 bg-gray-800 rounded-lg p-8 shadow-xl">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Información de Contacto</h3>
+                    <div class="space-y-4 text-lg text-gray-300">
+                        <p class="flex items-center"><span class="text-yellow-400 mr-3">📧</span> antonio.banderas.s.s.a@gmail.com</p>
+                        <p class="flex items-center"><span class="text-yellow-400 mr-3">📞</span> (+31) 6 29426697</p>
+                        <p class="flex items-center"><span class="text-yellow-400 mr-3">📍</span> Róterdam</p>
+                    </div>
+                    <p class="text-gray-400 mt-8">Estamos listos para transformar tu negocio con soluciones de IA.</p>
+                </div>
+
+                <div class="md:w-1/2 bg-gray-800 rounded-lg p-8 shadow-xl">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Envíanos un Mensaje</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" placeholder="Tu Nombre">
+                        </div>
+                        <div>
+                            <label for="company" class="block text-gray-300 text-sm font-bold mb-2">Empresa:</label>
+                            <input type="text" id="company" name="company" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" placeholder="Nombre de tu Empresa">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" placeholder="tu.correo@ejemplo.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Mensaje:</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:shadow-outline bg-gray-700 border-gray-600" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 w-full">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 py-10 px-4 text-center text-gray-400">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,10 90,90 10,90" stroke="#facc15" stroke-width="5" fill="none"/>
+                    <circle cx="50" cy="60" r="20" fill="#facc15"/>
+                </svg>
+                <span class="text-2xl font-bold text-yellow-400">S.S.A.</span>
+            </div>
+            <p class="mb-4">&copy; 2025 S.S.A. Todos los derechos reservados.</p>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-white transition duration-300">Política de Privacidad</a>
+                <a href="#" class="hover:text-white transition duration-300">Términos de Servicio</a>
+                </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para la navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // NOTA: Para un formulario de contacto funcional, necesitarías un backend (servidor)
+        // que procese los datos y los envíe. Este es solo un ejemplo de frontend.
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para enviar el formulario, por ejemplo, con fetch()
+            console.log('Formulario enviado (simulado).');
+            // Podrías mostrar un mensaje de éxito al usuario
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset(); // Limpia el formulario
+        });
+    </script>
+</body>
+</html>
